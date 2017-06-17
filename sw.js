@@ -22,14 +22,14 @@ var __wpo = {
     "./manifest.json"
   ],
   "hashesMap": {
-    "c274d53d98b37ca0e73f0bed63018aee1e4756f0": "./embedEn.html",
+    "ec21c439900be3c903895a8ad4e582a44b9fb677": "./embedEn.html",
     "ead148c03436e29ab15fd301bb412b1cb1e61b00": "./",
-    "ec00cb3e7f95d5363515fd1a1bebdd5e462d3329": "./bundle.js",
-    "acbbd4f9388e5852edcb52ff035239f00aa48310": "./main.css"
+    "e09de203dd3a13c1f3f819687f01f99dcf67a665": "./bundle.js",
+    "b9dbf31545bca1c0bda3d2fcc0cc54af3f18321a": "./main.css"
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-6-15 22:21:39",
+  "version": "2017-6-17 13:25:17",
   "name": "webpack-offline",
   "pluginVersion": "4.8.1",
   "relativePaths": true
