@@ -1,6 +1,6 @@
 require('./indexB.html');
 require('./embedEnB.html');
-require('./css/master.css');
+// require('./css/master.css');
 require('./js/master.js');
 // 888     888               888          888                     
 // 888     888               888          888                     

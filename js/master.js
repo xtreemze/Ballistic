@@ -1,4 +1,4 @@
-require('./babylon.min.js');
+// require('./babylon.min.js');
 //
 const BABYLON = window.BABYLON;
 //

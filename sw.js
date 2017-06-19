@@ -4,7 +4,6 @@ var __wpo = {
       "./embedEn.html",
       "./",
       "./bundle.js",
-      "./main.css",
       "./android-chrome-192x192.png",
       "./android-chrome-512x512.png",
       "./favicon-32x32.png",
@@ -22,14 +21,13 @@ var __wpo = {
     "./manifest.json"
   ],
   "hashesMap": {
-    "9f9c94bc310b9be46b63fc4268af9ef216a5b492": "./embedEn.html",
+    "728ec1fb12f0bba7e2cc16474cf97161d79ea49d": "./embedEn.html",
     "ead148c03436e29ab15fd301bb412b1cb1e61b00": "./",
-    "e09de203dd3a13c1f3f819687f01f99dcf67a665": "./bundle.js",
-    "37994c4f8b9192e801add78875d68c0563a294b4": "./main.css"
+    "85d7b2cbdbf02231dce84056ea6c59b4422d49bb": "./bundle.js"
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-6-17 15:21:54",
+  "version": "2017-6-19 21:54:34",
   "name": "webpack-offline",
   "pluginVersion": "4.8.1",
   "relativePaths": true

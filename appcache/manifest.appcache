@@ -1,12 +1,11 @@
 CACHE MANIFEST
-#ver:2017-6-17 15:21:54
+#ver:2017-6-19 21:54:34
 #plugin:4.8.1
 
 CACHE:
 ../embedEn.html
 ../
 ../bundle.js
-../main.css
 ../android-chrome-192x192.png
 ../android-chrome-512x512.png
 ../favicon-32x32.png
