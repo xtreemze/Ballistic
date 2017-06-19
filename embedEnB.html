@@ -16,12 +16,26 @@
   <link rel="shortcut icon" href="https://xtreemze.github.io/Ballistic/favicon.ico">
   <meta name="msapplication-config" content="https://xtreemze.github.io/Ballistic/browserconfig.xml">
   <meta name="theme-color" content="#81d4fa">
-  <script src="js/pep.min.js"></script>
+  <!--<script src="js/pep.min.js"></script>-->
+  <script src="js/hand.min.js"></script>
   <script src="js/cannon.min.js"></script>
-  <!--<script src="js/oimo.min.js"></script>-->
+  <script src="js/oimo.min.js"></script>
   <script src="js/babylon.min.js"></script>
-  <link rel="stylesheet" href="main.css">
+  <!--<link rel="stylesheet" href="main.css">-->
   <!---->
+  <style>
+    #renderCanvas,
+    body {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      -ms-touch-action: none;
+      touch-action: none;
+    }
+
+  </style>
 </head>
 
 <body> <canvas id="renderCanvas"></canvas>

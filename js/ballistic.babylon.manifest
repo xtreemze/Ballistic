@@ -1,1 +1,1 @@
-{    "version" : 1,    "enableSceneOffline" : true,    "enableTexturesOffline" : true}
+{    "version" : 1,    "enableSceneOffline" : false,    "enableTexturesOffline" : false}
