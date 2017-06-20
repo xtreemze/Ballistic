@@ -2,7 +2,7 @@
 // window.CANNON = require('cannon');
 // window.OIMO = require('oimo');
 // const BABYLON = require('babylonjs');
-window.BABYLON = BABYLON;
+const BABYLON = window.BABYLON;
 //
 const canvas = document.getElementById('renderCanvas');
 const engine = new BABYLON.Engine(canvas, true);
