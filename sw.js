@@ -27,13 +27,13 @@ var __wpo = {
     "./js/pep.min.js"
   ],
   "hashesMap": {
-    "be0e536869f45e3602a419d4ab24db308e707a97": "./embedEn.html",
+    "e1699fddfc7aced769281ca3e365c0c4abcb12f3": "./embedEn.html",
     "ead148c03436e29ab15fd301bb412b1cb1e61b00": "./",
-    "d5ecb37f918f11f2fbfa7fb7bbd9042351579e5e": "./bundle.js"
+    "9ed363228d8977a73344c3a6fdde60e40c266f92": "./bundle.js"
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-6-20 02:05:15",
+  "version": "2017-6-20 02:13:19",
   "name": "webpack-offline",
   "pluginVersion": "4.8.1",
   "relativePaths": true

@@ -16,7 +16,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
     window.redCube = window.redMesh.physicsImpostor;
     window.scene = scene;
     window.lights = scene.lights[0];
-    window.shadowGenerator = new BABYLON.ShadowGenerator(256,
+    window.shadowGenerator = new BABYLON.ShadowGenerator(1024,
       window.lights);
     window.shadowGenerator.usePoissonSampling = true;
     window.shadowGenerator.getShadowMap()
