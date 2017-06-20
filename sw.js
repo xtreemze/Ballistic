@@ -8,7 +8,10 @@ var __wpo = {
       "./android-chrome-512x512.png",
       "./favicon-32x32.png",
       "./favicon-16x16.png",
-      "./manifest.json"
+      "./manifest.json",
+      "./js/babylon.min.js",
+      "./js/cannon.min.js",
+      "./js/pep.min.js"
     ],
     "additional": [],
     "optional": []
@@ -18,16 +21,19 @@ var __wpo = {
     "./android-chrome-512x512.png",
     "./favicon-32x32.png",
     "./favicon-16x16.png",
-    "./manifest.json"
+    "./manifest.json",
+    "./js/babylon.min.js",
+    "./js/cannon.min.js",
+    "./js/pep.min.js"
   ],
   "hashesMap": {
-    "728ec1fb12f0bba7e2cc16474cf97161d79ea49d": "./embedEn.html",
+    "be0e536869f45e3602a419d4ab24db308e707a97": "./embedEn.html",
     "ead148c03436e29ab15fd301bb412b1cb1e61b00": "./",
-    "85d7b2cbdbf02231dce84056ea6c59b4422d49bb": "./bundle.js"
+    "6d757a72f008283ef53f516f3b5060bbafc27ecc": "./bundle.js"
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-6-19 21:54:34",
+  "version": "2017-6-20 02:02:45",
   "name": "webpack-offline",
   "pluginVersion": "4.8.1",
   "relativePaths": true

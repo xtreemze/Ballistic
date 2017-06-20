@@ -1,39 +1,52 @@
-// require('./babylon.min.js');
-//
-const BABYLON = window.BABYLON;
+// require('pepjs');
+// window.CANNON = require('cannon');
+// window.OIMO = require('oimo');
+// const BABYLON = require('babylonjs');
 //
 const canvas = document.getElementById('renderCanvas');
 const engine = new BABYLON.Engine(canvas, true);
 //
 BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
   scene.executeWhenReady(() => {
+    window.greenMesh = scene.getMeshByID('greenCube');
+    window.redMesh = scene.getMeshByID('redCube');
+    window.ground = scene.getMeshByID('ground');
+    window.greenCube = window.greenMesh.physicsImpostor;
+    window.redCube = window.redMesh.physicsImpostor;
     window.scene = scene;
-    const greenMesh = scene.getMeshByID('greenCube');
-    const redMesh = scene.getMeshByID('redCube');
-    const greenCube = scene._physicsEngine._impostors[0];
-    const redCube = scene._physicsEngine._impostors[1];
-    redCube.setLinearVelocity(new BABYLON.Vector3(0, 1, 0));
-    redCube.setAngularVelocity(new BABYLON.Quaternion(10, 0, 0, 0));
-    greenCube.applyImpulse(new BABYLON.Vector3(0, 15, 0),
-      greenMesh.getAbsolutePosition());
-    greenMesh.actionManager = new BABYLON.ActionManager(scene);
-    redMesh.actionManager = new BABYLON.ActionManager(scene);
+    window.lights = scene.lights[0];
+    window.shadowGenerator = new BABYLON.ShadowGenerator(256,
+      window.lights);
+    window.shadowGenerator.usePoissonSampling = true;
+    window.shadowGenerator.getShadowMap()
+      .renderList.push(window.greenMesh);
+    window.shadowGenerator.getShadowMap()
+      .renderList.push(window.redMesh);
+    window.redCube.setLinearVelocity(new BABYLON.Vector3(0, 1, 0));
+    window.redCube.setAngularVelocity(new BABYLON.Quaternion(10,
+      0, 0, 0));
+    window.greenCube.applyImpulse(new BABYLON.Vector3(0, 15, 0),
+      window.greenMesh.getAbsolutePosition());
+    window.greenMesh.actionManager = new BABYLON.ActionManager(
+      scene);
+    window.redMesh.actionManager = new BABYLON.ActionManager(
+      scene);
     //
-    greenMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction({
+    window.greenMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction({
       trigger: BABYLON.ActionManager.OnPickTrigger,
-      parameter: greenMesh,
+      parameter: window.greenMesh,
     }, () => {
-      greenCube.applyImpulse(new BABYLON.Vector3(0, 15, 0),
-        greenMesh.getAbsolutePosition());
+      window.greenCube.applyImpulse(new BABYLON.Vector3(0,
+        15, 0), window.greenMesh.getAbsolutePosition());
     }));
     //
     //
-    redMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction({
+    window.redMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction({
       trigger: BABYLON.ActionManager.OnPickTrigger,
-      parameter: redMesh,
+      parameter: window.redMesh,
     }, () => {
-      redCube.applyImpulse(new BABYLON.Vector3(0, 15, 0),
-        redMesh.getAbsolutePosition());
+      window.redCube.applyImpulse(new BABYLON.Vector3(0, 15,
+        0), window.redMesh.getAbsolutePosition());
     }));
     //
     scene.activeCamera.attachControl(canvas);

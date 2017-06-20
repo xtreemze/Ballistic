@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --host localhost --port 8080 --env=dev --inline --hot --profile --open",
     "debugHot": "webpack-dev-server --host localhost --port 8080 --env=dev --inline --hot --profile",
     "debug": "webpack-dev-server --host localhost --port 8080 --env=dev --profile",
-    "net": "webpack-dev-server --public --host 192.168.0.170 --port 80 --env=dev --profile --open",
+    "net": "webpack-dev-server --public --host 192.168.0.170 --port 8080 --env=dev --profile --open",
     "devHTML": "webpack-dev-server --progress --colors --host localhost --port 8080 --env=dev --profile --open",
     "watch": "webpack --progress --colors --env=dev --profile --watch",
     "exportp": "webpack --env=prod --profile"
@@ -44,13 +44,17 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
+    "babylonjs": "^3.0.4-beta",
+    "cannon": "^0.6.2",
     "extract-text-webpack-plugin": "^2.1.2",
-    "purifycss-webpack": "^0.7.0",
-    "optimize-js-plugin": "0.0.4",
     "glob-all": "^3.1.0",
     "google-closure-compiler-js": "^20170521.0.0",
     "html-minifier-webpack-plugin": "^1.0.1",
     "imagemin-webpack-plugin": "^1.4.4",
-    "offline-plugin": "^4.6.1"
+    "offline-plugin": "^4.6.1",
+    "oimo": "^1.0.9",
+    "optimize-js-plugin": "0.0.4",
+    "pepjs": "^0.4.3",
+    "purifycss-webpack": "^0.7.0"
   }
 }

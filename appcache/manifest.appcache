@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#ver:2017-6-19 21:54:34
+#ver:2017-6-20 02:02:45
 #plugin:4.8.1
 
 CACHE:
@@ -11,6 +11,9 @@ CACHE:
 ../favicon-32x32.png
 ../favicon-16x16.png
 ../manifest.json
+../js/babylon.min.js
+../js/cannon.min.js
+../js/pep.min.js
 
 NETWORK:
 *
