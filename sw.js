@@ -1,8 +1,8 @@
 var __wpo = {
   "assets": {
     "main": [
-      "./embedEn.html",
       "./",
+      "./embedEn.html",
       "./bundle.js",
       "./android-chrome-192x192.png",
       "./android-chrome-512x512.png",
@@ -27,13 +27,13 @@ var __wpo = {
     "./js/pep.min.js"
   ],
   "hashesMap": {
-    "e1699fddfc7aced769281ca3e365c0c4abcb12f3": "./embedEn.html",
     "ead148c03436e29ab15fd301bb412b1cb1e61b00": "./",
-    "9ed363228d8977a73344c3a6fdde60e40c266f92": "./bundle.js"
+    "e1699fddfc7aced769281ca3e365c0c4abcb12f3": "./embedEn.html",
+    "44c5104a7287144c2c843e50e704592b58514370": "./bundle.js"
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-6-20 02:13:19",
+  "version": "2017-6-20 16:32:22",
   "name": "webpack-offline",
   "pluginVersion": "4.8.1",
   "relativePaths": true
@@ -74,9 +74,6 @@ var __wpo = {
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
 /******/
-/******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__webpack_require__.i = function(value) { return value; };
-/******/
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
@@ -104,17 +101,11 @@ var __wpo = {
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -811,8 +802,14 @@ function logGroup(title, assets) {
 loaders: {},
 cacheMaps: [],
 });
-        module.exports = __webpack_require__(0)
+        module.exports = __webpack_require__(1)
       
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+
 
 /***/ })
 /******/ ]);
