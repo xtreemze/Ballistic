@@ -103,12 +103,13 @@ module.exports = function prod(env) {
            path.join(__dirname, 'js/*.js'),
          ]),
        }),*/
+      // new webpack.optimize.ModuleConcatenationPlugin(),
       new OfflinePlugin({
         externals: ['./android-chrome-192x192.png',
           './android-chrome-512x512.png', './favicon-32x32.png',
           './favicon-16x16.png', './manifest.json',
           './js/babylon.min.js', './js/cannon.min.js',
-          './js/pep.min.js'
+          './js/pep.min.js',
         ],
         caches: 'all',
         responseStrategy: 'network-first',
