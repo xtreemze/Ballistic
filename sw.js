@@ -5,16 +5,22 @@ var __wpo = {
       "./embedEn.html",
       "./bundle.js",
       "./js/babylon.min.js",
+      "./js/cannon.min.js",
+      "./js/oimo.min.js",
       "./js/jquery-3.2.1.min.js",
-      "./manifest.json"
+      "./manifest.json",
+      "./js/pep.min.js"
     ],
     "additional": [],
     "optional": []
   },
   "externals": [
     "./js/babylon.min.js",
+    "./js/cannon.min.js",
+    "./js/oimo.min.js",
     "./js/jquery-3.2.1.min.js",
-    "./manifest.json"
+    "./manifest.json",
+    "./js/pep.min.js"
   ],
   "hashesMap": {
     "ead148c03436e29ab15fd301bb412b1cb1e61b00": "./",
@@ -23,7 +29,7 @@ var __wpo = {
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-6-24 17:31:06",
+  "version": "2017-6-24 17:35:56",
   "name": "webpack-offline",
   "pluginVersion": "4.8.1",
   "relativePaths": true

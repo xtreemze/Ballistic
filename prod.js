@@ -55,8 +55,9 @@ module.exports = function prod(env) {
         concurrency: 2,
       }),
       new OfflinePlugin({
-        externals: ['./js/babylon.min.js',
-          './js/jquery-3.2.1.min.js', './manifest.json',
+        externals: ['./js/babylon.min.js', './js/cannon.min.js',
+          './js/oimo.min.js', './js/jquery-3.2.1.min.js',
+          './manifest.json', './js/pep.min.js',
         ],
         caches: 'all',
         responseStrategy: 'network-first',
