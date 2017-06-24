@@ -4,36 +4,26 @@ var __wpo = {
       "./",
       "./embedEn.html",
       "./bundle.js",
-      "./android-chrome-192x192.png",
-      "./android-chrome-512x512.png",
-      "./favicon-32x32.png",
-      "./favicon-16x16.png",
-      "./manifest.json",
       "./js/babylon.min.js",
-      "./js/cannon.min.js",
-      "./js/pep.min.js"
+      "./js/jquery-3.2.1.min.js",
+      "./manifest.json"
     ],
     "additional": [],
     "optional": []
   },
   "externals": [
-    "./android-chrome-192x192.png",
-    "./android-chrome-512x512.png",
-    "./favicon-32x32.png",
-    "./favicon-16x16.png",
-    "./manifest.json",
     "./js/babylon.min.js",
-    "./js/cannon.min.js",
-    "./js/pep.min.js"
+    "./js/jquery-3.2.1.min.js",
+    "./manifest.json"
   ],
   "hashesMap": {
     "ead148c03436e29ab15fd301bb412b1cb1e61b00": "./",
     "e1699fddfc7aced769281ca3e365c0c4abcb12f3": "./embedEn.html",
-    "ab11b6cc62eec8a84d40a3ad7564c8922e791f89": "./bundle.js"
+    "df606f98784c4dc350170665f8681a12435f577b": "./bundle.js"
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-6-20 17:31:00",
+  "version": "2017-6-24 17:31:06",
   "name": "webpack-offline",
   "pluginVersion": "4.8.1",
   "relativePaths": true

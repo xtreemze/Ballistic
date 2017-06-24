@@ -1,19 +1,14 @@
 CACHE MANIFEST
-#ver:2017-6-20 17:31:00
+#ver:2017-6-24 17:31:06
 #plugin:4.8.1
 
 CACHE:
 ../
 ../embedEn.html
 ../bundle.js
-../android-chrome-192x192.png
-../android-chrome-512x512.png
-../favicon-32x32.png
-../favicon-16x16.png
-../manifest.json
 ../js/babylon.min.js
-../js/cannon.min.js
-../js/pep.min.js
+../js/jquery-3.2.1.min.js
+../manifest.json
 
 NETWORK:
 *
