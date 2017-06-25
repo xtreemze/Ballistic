@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#ver:2017-6-25 17:32:28
+#ver:2017-6-25 20:14:17
 #plugin:4.8.1
 
 CACHE:
@@ -7,7 +7,7 @@ CACHE:
 ../bundle.js
 ../js/babylon.min.js
 ../js/cannon.min.js
-../js/pep.min.js
+../js/hand.min.js
 ../js/ballistic.babylon
 
 NETWORK:
