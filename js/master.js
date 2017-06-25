@@ -12,7 +12,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
   window.camera = camera;
   scene.executeWhenReady(() => {
     camera.touchMoveSensibility = 200;
-    camera.touchAngularSensibility = 60000;
+    camera.touchAngularSensibility = 50000;
     window.ground = scene.getMeshByID('ground');
     /*
 
