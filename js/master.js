@@ -10,13 +10,15 @@ const engine = new BABYLON.Engine(canvas, true);
 BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
   // scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.CannonJSPlugin());
   scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.OimoJSPlugin());
+  window.scene = scene;
+  window.scene.workerCollisions = true;
   const camera = scene.activeCamera;
   window.camera = camera;
+  camera.touchMoveSensibility = 300;
+  camera.touchAngularSensibility = 60000;
+  camera.angularSensibility = 2500;
+  camera.speed = 0.5;
   scene.executeWhenReady(() => {
-    camera.touchMoveSensibility = 400;
-    camera.touchAngularSensibility = 50000;
-    camera.angularSensibility = 2500;
-    camera.speed = 0.5;
     window.ground = scene.getMeshByID('ground');
     /*
 
@@ -36,8 +38,6 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
     window.redCube = window.redMesh.physicsImpostor;
     window.greenCube2 = window.greenMesh2.physicsImpostor;
     window.redCube2 = window.redMesh2.physicsImpostor;
-    window.scene = scene;
-    window.scene.workerCollisions = true;
     // window.lights = scene.lights[0];
     // window.shadowGenerator = new BABYLON.ShadowGenerator(1024,
     //   window.lights);

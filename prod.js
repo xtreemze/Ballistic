@@ -52,7 +52,7 @@ module.exports = function prod(env) {
                ` }],
         },
         // makeSourceMaps: true,
-        concurrency: 2,
+        concurrency: 4,
       }),
       // new OfflinePlugin({
       //   externals: ['./js/babylon25.min.js', './js/cannon.min.js',
