@@ -33,6 +33,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
     window.greenCube2 = window.greenMesh2.physicsImpostor;
     window.redCube2 = window.redMesh2.physicsImpostor;
     window.scene = scene;
+    window.scene.workerCollisions = true;
     // window.lights = scene.lights[0];
     // window.shadowGenerator = new BABYLON.ShadowGenerator(1024,
     //   window.lights);

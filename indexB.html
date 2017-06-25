@@ -4,17 +4,41 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   <title>Ballistic</title>
-  <link rel="prerender" href="embedEn.html"> </head>
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, minimum-scale=0.0, maximum-scale=10.0">
+  <link rel="canonical" href="https://xtreemze.github.io/Ballistic/index.html"
+  />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://xtreemze.github.io/Ballistic/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://xtreemze.github.io/Ballistic/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://xtreemze.github.io/Ballistic/favicon-16x16.png">
+  <link rel="manifest" href="https://xtreemze.github.io/Ballistic/manifest.json">
+  <link rel="mask-icon" href="https://xtreemze.github.io/Ballistic/safari-pinned-tab.svg"
+    color="#000">
+  <link rel="shortcut icon" href="https://xtreemze.github.io/Ballistic/favicon.ico">
+  <meta name="msapplication-config" content="https://xtreemze.github.io/Ballistic/browserconfig.xml">
+  <meta name="theme-color" content="#000">
+  <script src="js/pep.min.js"></script>
+  <script src="js/cannon.min.js"></script>
+  <!--<script src="js/oimo.min.js"></script>-->
+  <script src="js/babylon.min.js"></script>
+  <!--<link rel="stylesheet" href="main.css">-->
+  <style>
+    #renderCanvas,
+    body {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      -ms-touch-action: none;
+      touch-action: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
 
-<body style="margin: 0;">
-  <div id="loader" style="position: fixed; background-color:#000; width: 100%; height: 100%; z-index: 1; margin: 0; padding: 0;">
-    <h1>Ballistic by Carlos Velasco</h1>
-    <script>
-      window.onload = function() {
-        window.location.replace("./embedEn.html");
-      }
+  </style>
+</head>
 
-    </script>
+<body> <canvas id="renderCanvas"></canvas>
+  <script src="bundle.js"></script>
 </body>
 
 </html>

@@ -2,7 +2,6 @@ var __wpo = {
   "assets": {
     "main": [
       "./",
-      "./embedEn.html",
       "./bundle.js",
       "./js/babylon.min.js",
       "./js/cannon.min.js",
@@ -17,13 +16,12 @@ var __wpo = {
     "./js/pep.min.js"
   ],
   "hashesMap": {
-    "912bc60d488e4f0ba0becf8f37d62d1fe432478f": "./",
-    "e096fe30f64e2c11e6f4915a904b04acba7d6f68": "./embedEn.html",
-    "424746d9571d31e644de5974d62904dd8881e325": "./bundle.js"
+    "59bd65ce022a308914e3434b3a5dec0bd40cc2a4": "./",
+    "cf364ac08e84707ade6d3f13aaf8d363410bb942": "./bundle.js"
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-6-25 13:45:53",
+  "version": "2017-6-25 14:30:32",
   "name": "webpack-offline",
   "pluginVersion": "4.8.1",
   "relativePaths": true
