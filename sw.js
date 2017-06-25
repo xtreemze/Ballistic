@@ -32,6 +32,9 @@ var __wpo = {
   "strategy": "all",
   "responseStrategy": "network-first",
   "version": "2017-6-25 20:40:19",
+<<<<<<< HEAD
+>>>>>>> parent of 40fb61d... oimo gravity reduced
+=======
 >>>>>>> parent of 40fb61d... oimo gravity reduced
   "name": "webpack-offline",
   "pluginVersion": "4.8.1",
