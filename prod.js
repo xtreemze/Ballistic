@@ -1,7 +1,7 @@
 const HtmlMinifierPlugin = require('html-minifier-webpack-plugin');
 const ClosureCompiler = require('google-closure-compiler-js')
   .webpack;
-const OfflinePlugin = require('offline-plugin');
+// const OfflinePlugin = require('offline-plugin');
 //
 module.exports = function prod(env) {
   return {
@@ -54,21 +54,21 @@ module.exports = function prod(env) {
         // makeSourceMaps: true,
         concurrency: 2,
       }),
-      new OfflinePlugin({
-        externals: ['./js/babylon25.min.js', './js/cannon.min.js',
-          './js/pep.min.js', './js/ballistic.babylon',
-        ],
-        caches: 'all',
-        responseStrategy: 'network-first',
-        updateStrategy: 'all',
-        minify: 'true',
-        ServiceWorker: {
-          events: 'true',
-        },
-        AppCache: {
-          events: 'true',
-        },
-      }),
+      // new OfflinePlugin({
+      //   externals: ['./js/babylon25.min.js', './js/cannon.min.js',
+      //     './js/pep.min.js', './js/ballistic.babylon',
+      //   ],
+      //   caches: 'all',
+      //   responseStrategy: 'network-first',
+      //   updateStrategy: 'all',
+      //   minify: 'true',
+      //   ServiceWorker: {
+      //     events: 'true',
+      //   },
+      //   AppCache: {
+      //     events: 'true',
+      //   },
+      // }),
     ],
   };
 };

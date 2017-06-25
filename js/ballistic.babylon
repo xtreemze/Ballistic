@@ -18,7 +18,7 @@
 ,"indices":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35]
 ,"subMeshes":[{"materialIndex":0,"verticesStart":0,"verticesCount":36,"indexStart":0,"indexCount":36}]
 ,"instances":[]}
-,{"name":"button","id":"button","materialId":"ballistic.greenCubeMaterial","billboardMode":0,"position":[-29.2025,41.8225,-15.3664],"rotation":[0,0,0.0347],"scaling":[0.0471,0.0471,0.0471],"isVisible":true,"freezeWorldMatrix":false,"isEnabled":true,"checkCollisions":false,"receiveShadows":false,"tags":""
+,{"name":"button","id":"button","parentId":"Camera","materialId":"ballistic.greenCubeMaterial","billboardMode":0,"position":[-0.0001,-0.5885,-0.4325],"rotation":[0,-1.5708,-0.4341],"scaling":[0.1442,0.1442,0.1442],"isVisible":true,"freezeWorldMatrix":false,"isEnabled":true,"checkCollisions":false,"receiveShadows":false,"tags":""
 ,"positions":[-1,1,-1,-1,-1,1,-1,-1,-1,-1,1,1,1,-1,1,-1,-1,1,1,1,1,1,-1,-1,1,-1,1,1,1,-1,-1,-1,-1,1,-1,-1,1,-1,1,-1,-1,-1,-1,-1,1,-1,1,1,1,1,-1
 ,1,1,1,-1,1,-1,-1,1,1,-1,-1,1,-1,1,1,1,1,1,1,-1,1,1,1,1,1,1,-1,1,-1,-1,1,1,-1,-1,1,-1,-1,-1,-1,1,-1,1,1,-1,-1,-1,-1,-1,-1,1,1
 ,-1,1,-1,1,1,-1]

@@ -8,8 +8,8 @@ const canvas = document.getElementById('renderCanvas');
 const engine = new BABYLON.Engine(canvas, true);
 //
 BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
-  // scene.enablePhysics(new BABYLON.Vector3(0, -10, 0), new BABYLON.OimoJSPlugin());
-  scene.enablePhysics(new BABYLON.Vector3(0, -10, 0), new BABYLON.CannonJSPlugin());
+  // scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.CannonJSPlugin());
+  scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.OimoJSPlugin());
   const camera = scene.activeCamera;
   window.camera = camera;
   scene.executeWhenReady(() => {
