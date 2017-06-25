@@ -56,7 +56,7 @@ module.exports = function prod(env) {
       }),
       new OfflinePlugin({
         externals: ['./js/babylonOimo.min.js', './js/oimo.min.js',
-          './js/hand.min.js', './js/ballistic.babylon',
+          './js/pep.min.js', './js/ballistic.babylon',
         ],
         caches: 'all',
         responseStrategy: 'network-first',
