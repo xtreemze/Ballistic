@@ -64,7 +64,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
         trigger: BABYLON.ActionManager.OnPickTrigger,
         parameter: mesh,
       }, () => {
-        cube.applyImpulse(new BABYLON.Vector3(0, 20, 0),
+        cube.applyImpulse(new BABYLON.Vector3(0, 15, 0),
           mesh.getAbsolutePosition());
       }));
     };
