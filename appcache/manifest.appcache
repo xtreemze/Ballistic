@@ -1,21 +1,13 @@
 CACHE MANIFEST
-<<<<<<< HEAD
-<<<<<<< HEAD
-#ver:2017-6-25 20:56:19
-=======
-#ver:2017-6-25 20:40:19
->>>>>>> parent of 40fb61d... oimo gravity reduced
-=======
-#ver:2017-6-25 20:40:19
->>>>>>> parent of 40fb61d... oimo gravity reduced
+#ver:2017-6-25 20:21:23
 #plugin:4.8.1
 
 CACHE:
 ../
 ../bundle.js
-../js/babylonOimo.min.js
-../js/oimo.min.js
-../js/pep.min.js
+../js/babylon25.min.js
+../js/cannon.min.js
+../js/hand.min.js
 ../js/ballistic.babylon
 
 NETWORK:
