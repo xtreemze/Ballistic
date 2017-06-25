@@ -5,7 +5,8 @@ var __wpo = {
       "./bundle.js",
       "./js/babylon.min.js",
       "./js/cannon.min.js",
-      "./js/pep.min.js"
+      "./js/pep.min.js",
+      "./js/ballistic.babylon"
     ],
     "additional": [],
     "optional": []
@@ -13,7 +14,8 @@ var __wpo = {
   "externals": [
     "./js/babylon.min.js",
     "./js/cannon.min.js",
-    "./js/pep.min.js"
+    "./js/pep.min.js",
+    "./js/ballistic.babylon"
   ],
   "hashesMap": {
     "59bd65ce022a308914e3434b3a5dec0bd40cc2a4": "./",
@@ -21,7 +23,7 @@ var __wpo = {
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-6-25 16:02:04",
+  "version": "2017-6-25 16:11:13",
   "name": "webpack-offline",
   "pluginVersion": "4.8.1",
   "relativePaths": true
