@@ -8,7 +8,8 @@ const canvas = document.getElementById('renderCanvas');
 const engine = new BABYLON.Engine(canvas, true);
 //
 BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
-  scene.enablePhysics(new BABYLON.Vector3(0, -10, 0), new BABYLON.OimoJSPlugin());
+  // scene.enablePhysics(new BABYLON.Vector3(0, -10, 0), new BABYLON.OimoJSPlugin());
+  scene.enablePhysics(new BABYLON.Vector3(0, -10, 0), new BABYLON.CannonJSPlugin());
   const camera = scene.activeCamera;
   window.camera = camera;
   scene.executeWhenReady(() => {
@@ -64,7 +65,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
         trigger: BABYLON.ActionManager.OnPickTrigger,
         parameter: mesh,
       }, () => {
-        cube.applyImpulse(new BABYLON.Vector3(0, 15, 0),
+        cube.applyImpulse(new BABYLON.Vector3(0, 20, 0),
           mesh.getAbsolutePosition());
       }));
     };

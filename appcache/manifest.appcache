@@ -1,13 +1,13 @@
 CACHE MANIFEST
-#ver:2017-6-25 20:43:55
+#ver:2017-6-25 22:19:04
 #plugin:4.8.1
 
 CACHE:
 ../
 ../bundle.js
-../js/babylonOimo.min.js
-../js/oimo.min.js
-../js/hand.min.js
+../js/babylon25.min.js
+../js/cannon.min.js
+../js/pep.min.js
 ../js/ballistic.babylon
 
 NETWORK:
