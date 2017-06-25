@@ -44,8 +44,8 @@ module.exports = function prod(env) {
         compiler: {
           language_in: 'ECMASCRIPT6',
           language_out: 'ECMASCRIPT5',
-          compilation_level: 'SIMPLE',
-          warning_level: 'ADVANCED',
+          compilation_level: 'ADVANCED',
+          warning_level: 'QUIET',
           externs: [{ src: `
                       var BABYLON = {};
 
@@ -56,8 +56,7 @@ module.exports = function prod(env) {
       }),
       new OfflinePlugin({
         externals: ['./js/babylon.min.js', './js/cannon.min.js',
-          './js/oimo.min.js', './js/jquery-3.2.1.min.js',
-          './manifest.json', './js/pep.min.js',
+          './js/pep.min.js',
         ],
         caches: 'all',
         responseStrategy: 'network-first',

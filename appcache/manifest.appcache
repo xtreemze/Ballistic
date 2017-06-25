@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#ver:2017-6-24 19:50:55
+#ver:2017-6-25 13:45:53
 #plugin:4.8.1
 
 CACHE:
@@ -8,9 +8,6 @@ CACHE:
 ../bundle.js
 ../js/babylon.min.js
 ../js/cannon.min.js
-../js/oimo.min.js
-../js/jquery-3.2.1.min.js
-../manifest.json
 ../js/pep.min.js
 
 NETWORK:
