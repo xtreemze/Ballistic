@@ -8,11 +8,14 @@ const canvas = document.getElementById('renderCanvas');
 const engine = new BABYLON.Engine(canvas, true);
 //
 BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
+  // scene.enablePhysics(new BABYLON.Vector3(0, -10, 0), new BABYLON.OimoJSPlugin());
   const camera = scene.activeCamera;
   window.camera = camera;
   scene.executeWhenReady(() => {
-    camera.touchMoveSensibility = 200;
-    camera.touchAngularSensibility = 50000;
+    camera.touchMoveSensibility = 450;
+    camera.touchAngularSensibility = 40000;
+    camera.angularSensibility = 2500;
+    camera.speed = 0.5;
     window.ground = scene.getMeshByID('ground');
     /*
 
