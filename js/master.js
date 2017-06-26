@@ -82,18 +82,19 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
       trigger: BABYLON.ActionManager.OnPickTrigger,
       parameter: window.button,
     }, () => {
-      // const newMesh = BABYLON.Mesh.CreateBox('newMesh', 3,
-      //   scene);
-      // newMesh.checkCollisions = true;
-      // newMesh.material = window.greenMesh.material;
-      // const newCube = newMesh.getPhysicsImpostor();
-      // newMesh.position = window.button.position;
-      window.greenCube.position = window.button.position;
-      window.greenCube.setLinearVelocity(new BABYLON.Vector3(
-        30, 0, 0));
-      // const newImpostor = window.newCube.physicsImpostor;
-      // newImpostor.setLinearVelocity(new BABYLON.Vector3(30,
-      //   0, 0));
+      window.newMesh = BABYLON.Mesh.CreateBox('newMesh', 3,
+        scene);
+      window.newMesh.checkCollisions = true;
+      window.newMesh.material = window.greenMesh.material;
+      window.newMesh.parent = window.button;
+      window.newMesh.position = new BABYLON.Vector3(0, 0, 4);
+      window.newMesh.setPhysicsState(BABYLON.PhysicsEngine.BoxImpostor, { mass: 1 });
+      // window.greenCube.setDeltaPosition(window.button.position);
+      // window.greenCube.setLinearVelocity(new BABYLON.Vector3(
+      //   30, 0, 0));
+      // window.newImpostor = window.newMesh.physicsImpostor;
+      // window.newImpostor.setLinearVelocity(new BABYLON.Vector3(
+      //   0, 0, 4));
       cubeIndex += 1;
     }));
     //
