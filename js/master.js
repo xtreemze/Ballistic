@@ -15,7 +15,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
   window.scene.workerCollisions = true;
   const camera = scene.activeCamera;
   window.camera = camera;
-  camera.touchMoveSensibility = 300;
+  camera.touchMoveSensibility = 200;
   camera.touchAngularSensibility = 60000;
   camera.angularSensibility = 2500;
   camera.speed = 0.5;
@@ -82,14 +82,15 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
       trigger: BABYLON.ActionManager.OnPickTrigger,
       parameter: window.button,
     }, () => {
-      const newMesh = BABYLON.Mesh.CreateBox('newMesh', 3,
-        scene);
-      newMesh.checkCollisions = true;
-      newMesh.position = window.button.position;
-      newMesh.material = window.greenMesh.material;
-      const newCube = newMesh.getPhysicsImpostor();
-      // newCube.setLinearVelocity(new BABYLON.Vector3(30, 0,
-      //   0));
+      // const newMesh = BABYLON.Mesh.CreateBox('newMesh', 3,
+      //   scene);
+      // newMesh.checkCollisions = true;
+      // newMesh.material = window.greenMesh.material;
+      // const newCube = newMesh.getPhysicsImpostor();
+      // newMesh.position = window.button.position;
+      window.greenCube.position = window.button.position;
+      window.greenCube.setLinearVelocity(new BABYLON.Vector3(
+        30, 0, 0));
       // const newImpostor = window.newCube.physicsImpostor;
       // newImpostor.setLinearVelocity(new BABYLON.Vector3(30,
       //   0, 0));
