@@ -18,12 +18,12 @@ var __wpo = {
     "./js/ballistic.babylon"
   ],
   "hashesMap": {
-    "a8b07767d3292fce1c52125aaa112a1f96abf591": "./",
+    "deb42baf6d9fe2e1ada300f81232ad00d3ef7a19": "./",
     "25036d8ef99ebfbc7935c6df0c2ed1d7170e9cc5": "./bundle.js"
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-6-27 16:51:00",
+  "version": "2017-6-27 16:56:41",
   "name": "webpack-offline",
   "pluginVersion": "4.8.1",
   "relativePaths": true
