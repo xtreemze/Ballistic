@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    // "checkJs": false,
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": ["node_modules"],
+  "include": ["./js/babylon.d.ts", "*"],
+  "typeAcquisition": {
+    "include": ["babylon", "babylonjs"]
+  }
+}

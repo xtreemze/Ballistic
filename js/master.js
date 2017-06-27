@@ -8,16 +8,23 @@ const canvas = document.getElementById('renderCanvas');
 const engine = new BABYLON.Engine(canvas, true, null, false);
 //
 BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
-  // scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.CannonJSPlugin());
-  scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.OimoJSPlugin());
   window.scene = scene;
+  // scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.CannonJSPlugin());
+  window.scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON
+    .OimoJSPlugin());
   window.scene.workerCollisions = true;
+  window.scene.fogMode = BABYLON.Scene.FOGMODE_EXP2;
+  window.scene.fogDensity = 0.015;
+  window.scene.clearColor = new BABYLON.Color3(0, 0.259, 0.841);
+  window.scene.fogColor = new BABYLON.Color3(0.2, 0.4, 0.8);
+  window.scene.fogStart = 15.0;
+  window.scene.fogEnd = 200.0;
   const camera = scene.activeCamera;
   window.camera = camera;
   camera.touchMoveSensibility = 150;
   camera.touchAngularSensibility = 60000;
   camera.angularSensibility = 2500;
-  camera.speed = 0.5;
+  camera.speed = 0.6;
   scene.executeWhenReady(() => {
     /*
 
@@ -37,10 +44,10 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
     window.redCube = window.redMesh.physicsImpostor;
     window.greenCube2 = window.greenMesh2.physicsImpostor;
     window.redCube2 = window.redMesh2.physicsImpostor;
-    window.button = BABYLON.Mesh.CreateBox('button', 0.01, scene);
+    window.button = BABYLON.Mesh.CreateBox('button', 0.5, scene);
     window.button.material = window.redMesh.material;
     window.button.parent = camera; // The weapon will move with the player camera
-    window.button.position = new BABYLON.Vector3(0, -0.04, 0.1);
+    window.button.position = new BABYLON.Vector3(0, -1, 2);
     window.button.actionManager = new BABYLON.ActionManager(scene);
     window.greenMesh.actionManager = new BABYLON.ActionManager(
       scene);
@@ -56,7 +63,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
         trigger: BABYLON.ActionManager.OnPickTrigger,
         parameter: mesh,
       }, () => {
-        cube.applyImpulse(new BABYLON.Vector3(0, 20, 0),
+        cube.applyImpulse(new BABYLON.Vector3(0, 100, 0),
           mesh.getAbsolutePosition());
       }));
     };
@@ -69,20 +76,20 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
       trigger: BABYLON.ActionManager.OnPickTrigger,
       parameter: window.button,
     }, () => {
-      if (!window.newMesh === false) window.newMesh.dispose();
-      window.newMesh = BABYLON.Mesh.CreateBox('newMesh', 2,
+      // if (!window.newMesh === false) window.newMesh.dispose();
+      window.newMesh = BABYLON.Mesh.CreateBox('newMesh', 3,
         scene);
       window.newMesh.material = window.redMesh.material;
       // window.newMesh.parent = window.button;
       window.newMesh.rotation.copyFrom(window.camera.rotation);
       window.newMesh.position.copyFrom(window.button.absolutePosition);
       window.newMesh.position.addInPlace(new BABYLON.Vector3(
-        0, -2, 0));
-      window.forwardLocal = new BABYLON.Vector3(0, 0, 25);
+        0, 2, 0));
+      window.forwardLocal = new BABYLON.Vector3(0, 0, 40);
       // window.newMesh.rotation = window.forwardGlobal;
       // const cam = camera.globalPosition;
       // const target = camera.getTarget();
-      window.newMesh.setPhysicsState(BABYLON.PhysicsEngine.BoxImpostor, { mass: 1 });
+      window.newMesh.setPhysicsState(BABYLON.PhysicsEngine.BoxImpostor, { mass: 4 });
       window.newImpostor = window.newMesh.physicsImpostor;
       const speed = window.newMesh.getDirection(window.forwardLocal);
       window.newImpostor.setLinearVelocity(speed);
