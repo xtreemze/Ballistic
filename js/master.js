@@ -22,7 +22,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
   const camera = scene.activeCamera;
   window.camera = camera;
   camera.touchMoveSensibility = 150;
-  camera.touchAngularSensibility = 60000;
+  camera.touchAngularSensibility = 25000;
   camera.angularSensibility = 2500;
   camera.speed = 0.6;
   scene.executeWhenReady(() => {
@@ -84,7 +84,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
       window.newMesh.rotation.copyFrom(window.camera.rotation);
       window.newMesh.position.copyFrom(window.button.absolutePosition);
       window.newMesh.position.addInPlace(new BABYLON.Vector3(
-        0, 2, 0));
+        0, 0, 0));
       window.forwardLocal = new BABYLON.Vector3(0, 0, 40);
       // window.newMesh.rotation = window.forwardGlobal;
       // const cam = camera.globalPosition;
@@ -112,3 +112,6 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
 window.addEventListener('resize', () => {
   engine.resize();
 });
+document.documentElement.addEventListener('touchmove', (event) => {
+  event.preventDefault();
+}, false);
