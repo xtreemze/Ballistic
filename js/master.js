@@ -14,16 +14,17 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
     .OimoJSPlugin());
   window.scene.workerCollisions = true;
   window.scene.fogMode = BABYLON.Scene.FOGMODE_EXP2;
-  window.scene.fogDensity = 0.015;
+  window.scene.fogDensity = 0.01;
+  window.scene.fogStart = 15.0;
+  window.scene.fogEnd = 150.0;
   window.scene.clearColor = new BABYLON.Color3(0, 0.259, 0.841);
   window.scene.fogColor = new BABYLON.Color3(0.2, 0.4, 0.8);
-  window.scene.fogStart = 15.0;
-  window.scene.fogEnd = 200.0;
   const camera = scene.activeCamera;
   window.camera = camera;
+  camera.fov = 1.8;
   camera.touchMoveSensibility = 150;
   camera.touchAngularSensibility = 25000;
-  camera.angularSensibility = 2500;
+  camera.angularSensibility = 2000;
   camera.speed = 0.6;
   scene.executeWhenReady(() => {
     /*

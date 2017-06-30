@@ -27,7 +27,7 @@
   "globals": {
     "Materialize": true,
     "$": true,
-    "lemonade": true,
+    "BABYLON": true,
     "env": true
   }
 }
