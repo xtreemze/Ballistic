@@ -621,7 +621,7 @@
 ,"instances":[]}
 ],
 "morphTargetManagers":[],
-"cameras":[{"name":"Camera","id":"Camera","position":[-29.3064,42.0528,-15.3664],"rotation":[1.102,1.5708,0],"fov":1.6397,"minZ":0.1,"maxZ":200,"speed":1,"inertia":0.9,"checkCollisions":true,"applyGravity":true,"ellipsoid":[0.2,1.5,0.2],"cameraRigMode":0,"interaxial_distance":0.0637,"type":"UniversalCamera"}],"activeCamera":"Camera",
+"cameras":[{"name":"Camera","id":"Camera","position":[-29.3064,42.0528,-15.3664],"rotation":[1.102,1.5708,0],"fov":1.6397,"minZ":0.1,"maxZ":200,"speed":1,"inertia":0.9,"checkCollisions":true,"applyGravity":true,"ellipsoid":[1,2,1],"cameraRigMode":0,"interaxial_distance":0.0637,"type":"UniversalCamera"}],"activeCamera":"Camera",
 "lights":[{"name":"bottomHemi","id":"bottomHemi","type":3,"direction":[-0.0216,-0.3221,0.0489],"groundColor":[0,0,0],"intensity":0.57,"diffuse":[0.442,1,0.7016],"specular":[0.442,1,0.7016]},{"name":"topHemi","id":"topHemi","type":3,"direction":[0.1686,0.2756,0.047],"groundColor":[0,0,0],"intensity":1.05,"diffuse":[0.7461,0.7329,0.6481],"specular":[0.7461,0.7329,0.6481]}],
 "shadowGenerators":[]
 }
