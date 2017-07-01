@@ -21,12 +21,12 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
   window.scene.fogColor = new BABYLON.Color3(0.2, 0.4, 0.8);
   const camera = scene.activeCamera;
   window.camera = camera;
-  camera.fov = 1.6;
-  camera.inertia = 0.7;
+  camera.fov = 1.65;
+  camera.inertia = 0.72;
   camera.speed = 2;
   camera.angularSensibility = 1400;
-  camera.touchMoveSensibility = 122;
-  camera.touchAngularSensibility = 6950;
+  camera.touchMoveSensibility = 150;
+  camera.touchAngularSensibility = 7400;
   scene.executeWhenReady(() => {
     /*
 
