@@ -4,7 +4,9 @@
   "env": {
     "browser": true,
     "commonjs": true,
-    "node": true
+    "node": true,
+    "es6": true,
+    "amd": true
   },
   "rules": {
     "no-const-assign": "warn",
@@ -25,9 +27,9 @@
     "no-underscore-dangle": "off"
   },
   "globals": {
-    "Materialize": true,
-    "$": true,
     "BABYLON": true,
-    "env": true
+    "env": true,
+    "camera": true,
+    "scene": true
   }
 }
