@@ -32,6 +32,21 @@
     }
   }, {
     "type": "chrome",
+    "request": "launch",
+    "name": "Launch Chrome against Net2",
+    "url": "http://192.168.0.124:8080",
+    "webRoot": "${workspaceRoot}",
+    "sourceMaps": true,
+    "runtimeArgs": ["--incognito", "--allow-running-insecure-content",
+      "--allow-file-access-from-files", "--allow-file-access",
+      "--allow-cross-origin-auth-prompt",
+      "--remote-debugging-port=9222"
+    ],
+    "sourceMapPathOverrides": {
+      "webpack:///*": "${workspaceRoot}/*"
+    }
+  }, {
+    "type": "chrome",
     "request": "attach",
     "name": "Attach to Chrome",
     "port": 9222,
