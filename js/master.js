@@ -38,6 +38,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
     const redMesh = scene.getMeshByID('redCube');
     const greenMesh2 = scene.getMeshByID('greenCube2');
     const redMesh2 = scene.getMeshByID('redCube2');
+    const ice = scene.getMeshByID('ice');
     const greenCube = greenMesh.physicsImpostor;
     const redCube = redMesh.physicsImpostor;
     const greenCube2 = greenMesh2.physicsImpostor;
@@ -76,7 +77,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
     }, () => {
       const newMesh = BABYLON.Mesh.CreateBox('newMesh', 2,
         scene);
-      newMesh.material = redMesh.material;
+      newMesh.material = ice.material;
       newMesh.position.copyFrom(button2.absolutePosition);
       newMesh.rotation.copyFrom(camera.rotation);
       const forwardLocal = new BABYLON.Vector3(0, 0, 70);

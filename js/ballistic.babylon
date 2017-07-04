@@ -1,14 +1,24 @@
 {"producer":{"name":"Blender","version":"2.78 (sub 0)","exporter_version":"5.3.0","file":"ballistic.babylon"},
 "autoClear":true,"clearColor":[0.1369,0.1345,0.1473],"ambientColor":[0.1274,0.2346,0.4793],"gravity":[0,-0.6,0],"physicsEnabled":true,
-"materials":[{"name":"ballistic.redCubeMaterial","id":"ballistic.redCubeMaterial","ambient":[1,0.0832,0],"diffuse":[0.8,0.0666,0],"specular":[0.5,0.5,0.5],"emissive":[0,0,0],"specularPower":15,"alpha":1,"backFaceCulling":true,"checkReadyOnlyOnce":false,"maxSimultaneousLights":4},
+"materials":[{"name":"ballistic.platforms","id":"ballistic.platforms","ambient":[1,0.9556,1],"diffuse":[0.8,0.7645,0.8],"specular":[0.1833,0.1756,0.1814],"emissive":[0,0,0],"specularPower":6,"alpha":1,"backFaceCulling":true,"checkReadyOnlyOnce":false,"maxSimultaneousLights":4},
+{"name":"ballistic.redCubeMaterial","id":"ballistic.redCubeMaterial","ambient":[1,0.0832,0],"diffuse":[0.8,0.0666,0],"specular":[0.5,0.5,0.5],"emissive":[0,0,0],"specularPower":15,"alpha":1,"backFaceCulling":true,"checkReadyOnlyOnce":false,"maxSimultaneousLights":4},
 {"name":"ballistic.greenCubeMaterial","id":"ballistic.greenCubeMaterial","ambient":[0.4451,1,0.155],"diffuse":[0.3561,0.8,0.124],"specular":[0.5,0.5,0.5],"emissive":[0,0,0],"specularPower":15,"alpha":1,"backFaceCulling":true,"checkReadyOnlyOnce":false,"maxSimultaneousLights":4},
-{"name":"ballistic.platforms","id":"ballistic.platforms","ambient":[1,0.9556,1],"diffuse":[0.8,0.7645,0.8],"specular":[0.1833,0.1756,0.1814],"emissive":[0,0,0],"specularPower":6,"alpha":1,"backFaceCulling":true,"checkReadyOnlyOnce":false,"maxSimultaneousLights":4},
-{"name":"ballistic.transparent","id":"ballistic.transparent","ambient":[0,0.8446,0.5583],"diffuse":[0,0.6757,0.4466],"specular":[0.6208,0.6208,0.6208],"emissive":[0,0.6166,0.4075],"specularPower":1,"alpha":0.6042,"backFaceCulling":true,"checkReadyOnlyOnce":false,"maxSimultaneousLights":4},
+{"name":"ballistic.ice","id":"ballistic.ice","ambient":[0,0.8446,0.5583],"diffuse":[0,0.6757,0.4466],"specular":[0.6208,0.6208,0.6208],"emissive":[0,0.6166,0.4075],"specularPower":1,"alpha":0.6042,"backFaceCulling":true,"checkReadyOnlyOnce":false,"maxSimultaneousLights":4},
 {"name":"ballistic.ramps","id":"ballistic.ramps","ambient":[0.8146,0.6971,1],"diffuse":[0.6517,0.5577,0.8],"specular":[0.3833,0.3671,0.3792],"emissive":[0,0,0],"specularPower":4,"alpha":0.8634,"backFaceCulling":true,"checkReadyOnlyOnce":false,"maxSimultaneousLights":4},
 {"name":"ballistic.skyMaterial","id":"ballistic.skyMaterial","ambient":[0,0.2586,0.8411],"diffuse":[0,0.2274,0.7395],"specular":[0.4125,0.395,0.4081],"emissive":[0,0.3931,1.2785],"specularPower":12,"alpha":1,"backFaceCulling":true,"checkReadyOnlyOnce":true,"maxSimultaneousLights":4}],
 "multiMaterials":[],
 "skeletons":[],
-"meshes":[{"name":"Suzanne","id":"Suzanne","materialId":"ballistic.redCubeMaterial","billboardMode":0,"position":[45.2886,17.9646,42.7109],"rotation":[0,0,0],"scaling":[1,1,1],"isVisible":true,"freezeWorldMatrix":false,"isEnabled":true,"checkCollisions":true,"receiveShadows":false,"tags":""
+"meshes":[{"name":"Cube.010","id":"Cube.010","materialId":"ballistic.platforms","billboardMode":0,"position":[-27.8491,0.1047,29.6349],"rotation":[-0.2377,0,0],"scaling":[0.3751,0.4183,7.3788],"isVisible":true,"freezeWorldMatrix":false,"isEnabled":true,"checkCollisions":true,"receiveShadows":false,"tags":""
+,"positions":[-1,1,-1,-1,-1,1,-1,-1,-1,-1,1,1,1,-1,1,-1,-1,1,1,1,1,1,-1,-1,1,-1,1,1,1,-1,-1,-1,-1,1,-1,-1,1,-1,1,-1,-1,-1,-1,-1,1,-1,1,1,1,1,-1
+,1,1,1,-1,1,-1,-1,1,1,-1,-1,1,-1,1,1,1,1,1,1,-1,1,1,1,1,1,1,-1,1,-1,-1,1,1,-1,-1,1,-1,-1,-1,-1,1,-1,1,1,-1,-1,-1,-1,-1,-1,1,1
+,-1,1,-1,1,1,-1]
+,"normals":[-1,0,0,-1,0,0,-1,0,0,0,0,1,0,0,1,0,0,1,1,0,0,1,0,0,1,0,0,0,0,-1,0,0,-1,0,0,-1,0,-1,0,0,-1,0,0,-1,0,0,1,0,0,1,0
+,0,1,0,-1,0,0,-1,0,0,-1,0,0,0,0,1,0,0,1,0,0,1,1,0,0,1,0,0,1,0,0,0,0,-1,0,0,-1,0,0,-1,0,-1,0,0,-1,0,0,-1,0,0,1,0
+,0,1,0,0,1,0]
+,"indices":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35]
+,"subMeshes":[{"materialIndex":0,"verticesStart":0,"verticesCount":36,"indexStart":0,"indexCount":36}]
+,"instances":[{"name":"Cube.009","position":[-27.0457,1.2885,-6.4167],"rotation":[0.2672,0,0],"scaling":[0.3751,0.4183,7.3788],"freezeWorldMatrix":false},{"name":"Cube.008","position":[-34.4707,-0.538,9.5167],"rotation":[0.0657,-0.0151,-0.001],"scaling":[0.3751,0.4183,12.7846],"freezeWorldMatrix":false},{"name":"Cube.007","position":[-30.4729,1.9091,48.2036],"rotation":[0,1.5708,0],"scaling":[0.3751,0.4183,5.9245],"freezeWorldMatrix":false},{"name":"Cube.004","position":[-34.1757,1.9091,-17.1929],"rotation":[0,0,0],"scaling":[0.3751,0.4183,3.6542],"freezeWorldMatrix":false}]}
+,{"name":"Suzanne","id":"Suzanne","materialId":"ballistic.redCubeMaterial","billboardMode":0,"position":[45.2886,17.9646,42.7109],"rotation":[0,0,0],"scaling":[1,1,1],"isVisible":true,"freezeWorldMatrix":false,"isEnabled":true,"checkCollisions":true,"receiveShadows":false,"tags":""
 ,"positions":[1.9692,0.9662,-3.6035,1.6027,-0.3544,-3.6969,3.1668,0.2842,-2.486,-1.5947,-0.3547,-3.701,-1.9655,0.9629,-3.6085,-2.7822,0.6533,-2.3043,1.6027,-0.3544,-3.6969,1.9692,0.9662,-3.6035,0.5191,-0.127,-2.8548,-1.9655,0.9629,-3.6085,-1.5947,-0.3547,-3.701,-0.5048,-0.1315,-2.863,-1.9655,0.9629,-3.6085,-0.5048,-0.1315,-2.863,-1.3925,1.3883,-2.6466,-1.9655,0.9629,-3.6085,-1.3925,1.3883,-2.6466
 ,-2.7822,0.6533,-2.3043,3.1668,0.2842,-2.486,2.0042,0.929,-2.2307,1.9692,0.9662,-3.6035,-3.9415,-0.7535,-2.1744,-1.2483,-2.2927,-1.778,-0.4565,-1.5176,-3.6153,4.0074,1.0813,-2.8132,2.803,0.323,-3.0406,3.9493,-0.3873,-1.656,-0.0245,1.0362,-3.3175,1.2349,1.8781,-3.6057,1.2531,2.9346,-3.1619,1.2349,1.8781,-3.6057,-0.0245,1.0362,-3.3175,1.542,1.0064,-3.7073,-1.3121,1.01,-3.5453
 ,-0.0245,1.0362,-3.3175,-1.2452,2.8438,-3.4709,-4.0833,1.0237,-2.8504,-1.3121,1.01,-3.5453,-1.2452,2.8438,-3.4709,4.0074,1.0813,-2.8132,1.2349,1.8781,-3.6057,2.803,0.323,-3.0406,-3.9415,-0.7535,-2.1744,-2.7655,0.3783,-3.1214,-4.0833,1.0237,-2.8504,0.5769,-1.799,-3.5538,1.2497,-2.0506,-2.6867,1.1145,-0.2645,-3.4365,1.1145,-0.2645,-3.4365,-1.0979,-0.2707,-3.4224,0.5769,-1.799,-3.5538
@@ -83,16 +93,6 @@
 {"frame":60,"values":[1,1,1]},
 {"frame":120,"values":[1,1,1]}],"loopBehavior":1,"name":"scaling animation","property":"scaling"}],"ranges":[{"name":"Action","from":0,"to":120}],"autoAnimate":true,"autoAnimateFrom":1,"autoAnimateTo":120,"autoAnimateLoop":true
 ,"instances":[]}
-,{"name":"Cube.008","id":"Cube.008","materialId":"ballistic.platforms","billboardMode":0,"position":[-34.4707,-0.538,9.5167],"rotation":[0.0657,-0.0151,-0.001],"scaling":[0.3751,0.4183,12.7846],"isVisible":true,"freezeWorldMatrix":false,"isEnabled":true,"checkCollisions":true,"receiveShadows":false,"tags":""
-,"positions":[-1,1,-1,-1,-1,1,-1,-1,-1,-1,1,1,1,-1,1,-1,-1,1,1,1,1,1,-1,-1,1,-1,1,1,1,-1,-1,-1,-1,1,-1,-1,1,-1,1,-1,-1,-1,-1,-1,1,-1,1,1,1,1,-1
-,1,1,1,-1,1,-1,-1,1,1,-1,-1,1,-1,1,1,1,1,1,1,-1,1,1,1,1,1,1,-1,1,-1,-1,1,1,-1,-1,1,-1,-1,-1,-1,1,-1,1,1,-1,-1,-1,-1,-1,-1,1,1
-,-1,1,-1,1,1,-1]
-,"normals":[-1,0,0,-1,0,0,-1,0,0,0,0,1,0,0,1,0,0,1,1,0,0,1,0,0,1,0,0,0,0,-1,0,0,-1,0,0,-1,0,-1,0,0,-1,0,0,-1,0,0,1,0,0,1,0
-,0,1,0,-1,0,0,-1,0,0,-1,0,0,0,0,1,0,0,1,0,0,1,1,0,0,1,0,0,1,0,0,0,0,-1,0,0,-1,0,0,-1,0,-1,0,0,-1,0,0,-1,0,0,1,0
-,0,1,0,0,1,0]
-,"indices":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35]
-,"subMeshes":[{"materialIndex":0,"verticesStart":0,"verticesCount":36,"indexStart":0,"indexCount":36}]
-,"instances":[{"name":"Cube.007","position":[-30.4729,1.9091,48.2036],"rotation":[0,1.5708,0],"scaling":[0.3751,0.4183,5.9245],"freezeWorldMatrix":false},{"name":"Cube.004","position":[-34.1757,1.9091,-17.1929],"rotation":[0,0,0],"scaling":[0.3751,0.4183,3.6542],"freezeWorldMatrix":false}]}
 ,{"name":"Cube.006","id":"Cube.006","materialId":"ballistic.platforms","billboardMode":0,"position":[-36.0243,1.9091,42.7716],"rotation":[0,-3.1416,0],"scaling":[0.3751,0.4183,4.9549],"isVisible":true,"freezeWorldMatrix":false,"isEnabled":true,"checkCollisions":true,"receiveShadows":false,"tags":""
 ,"positions":[-1,1,-1,-1,-1,1,-1,-1,-1,-1,1,1,1,-1,1,-1,-1,1,1,1,1,1,-1,-1,1,-1,1,1,1,-1,-1,-1,-1,1,-1,-1,1,-1,1,-1,-1,-1,-1,-1,1,-1,1,1,1,1,-1
 ,1,1,1,-1,1,-1,-1,1,1,-1,-1,1,-1,1,1,1,1,1,1,-1,1,1,1,1,1,1,-1,1,-1,-1,1,1,-1,-1,1,-1,-1,-1,-1,1,-1,1,1,-1,-1,-1,-1,-1,-1,1,1
@@ -123,7 +123,7 @@
 ,"indices":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35]
 ,"subMeshes":[{"materialIndex":0,"verticesStart":0,"verticesCount":36,"indexStart":0,"indexCount":36}]
 ,"instances":[]}
-,{"name":"Cube.003","id":"Cube.003","materialId":"ballistic.transparent","billboardMode":0,"position":[-6.6129,-55.4063,-2.3679],"rotation":[0,0,0],"scaling":[89.8475,37.0633,89.8475],"isVisible":true,"freezeWorldMatrix":true,"isEnabled":true,"checkCollisions":true,"receiveShadows":false,"tags":"","physicsImpostor":2,"physicsMass":0,"physicsFriction":0.5,"physicsRestitution":0
+,{"name":"ice","id":"ice","materialId":"ballistic.ice","billboardMode":0,"position":[-6.6129,-55.4063,-2.3679],"rotation":[0,0,0],"scaling":[89.8475,37.0633,89.8475],"isVisible":true,"freezeWorldMatrix":true,"isEnabled":true,"checkCollisions":true,"receiveShadows":false,"tags":"","physicsImpostor":2,"physicsMass":0,"physicsFriction":0.5,"physicsRestitution":0
 ,"positions":[-1,1,1,-1,-1,-1,-1,1,-1,1,-1,1,-1,1,1,1,1,1,1,1,-1,1,-1,1,1,1,1,-1,1,-1,1,-1,-1,1,1,-1,1,-1,1,-1,-1,-1,-1,-1,1,1,1,-1,-1,1,1
 ,-1,1,-1,-1,1,1,-1,-1,1,-1,-1,-1,1,-1,1,-1,-1,1,-1,1,1,1,1,-1,1,-1,-1,1,-1,1,-1,1,-1,-1,-1,-1,1,-1,-1,1,-1,1,1,-1,-1,-1,-1,-1,1,1,-1
 ,1,1,1,-1,1,1]
