@@ -87,7 +87,8 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       newMesh.checkCollisions = true;
       setTimeout(() => { newMesh.dispose(); }, 5000);
       button.position = new BABYLON.Vector3(0, -2, 3.6);
-      button.rotate(BABYLON.Axis.Z, -0.45, BABYLON.Space.LOCAL);
+      button.rotate(BABYLON.Axis.Z, Math.PI / 3, BABYLON.Space
+        .LOCAL);
       setTimeout(() => {
         button.position = new BABYLON.Vector3(0, -2, 4);
       }, 85);
