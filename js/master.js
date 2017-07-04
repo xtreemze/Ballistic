@@ -1,27 +1,23 @@
-// require('pepjs');
-// window.CANNON = require('cannon');
-// window.OIMO = require('oimo');
-// const BABYLON = require('babylonjs');
 const BABYLON = window.BABYLON;
 //
 const canvas = document.getElementById('renderCanvas');
 const engine = new BABYLON.Engine(canvas, true, null, false);
 //
-BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
-  window.scene = scene;
+BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
+  window.scene = scene1;
   // scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.CannonJSPlugin());
-  window.scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON
-    .OimoJSPlugin());
-  window.scene.workerCollisions = true;
-  window.scene.fogMode = BABYLON.Scene.FOGMODE_EXP2;
-  window.scene.fogDensity = 0.01;
-  window.scene.fogStart = 15.0;
-  window.scene.fogEnd = 150.0;
-  window.scene.clearColor = new BABYLON.Color3(0, 0.259, 0.841);
-  window.scene.fogColor = new BABYLON.Color3(0.2, 0.4, 0.8);
+  scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.OimoJSPlugin());
+  scene.workerCollisions = true;
+  scene.fogMode = BABYLON.Scene.FOGMODE_EXP2;
+  scene.fogDensity = 0.01;
+  scene.fogStart = 15.0;
+  scene.fogEnd = 150.0;
+  scene.clearColor = new BABYLON.Color3(0, 0.259, 0.841);
+  scene.fogColor = new BABYLON.Color3(0.2, 0.4, 0.8);
   const camera = scene.activeCamera;
   window.camera = camera;
   camera.fov = 1.65;
+  //
   camera.inertia = 0.72;
   camera.speed = 2;
   camera.angularSensibility = 1400;
@@ -38,29 +34,25 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
     Y888888P YP  YP  YP 88       `Y88P'  `8888Y'    YP     `Y88P'  88   YD `8888Y'
 
     */
-    window.greenMesh = scene.getMeshByID('greenCube');
-    window.redMesh = scene.getMeshByID('redCube');
-    window.greenMesh2 = scene.getMeshByID('greenCube2');
-    window.redMesh2 = scene.getMeshByID('redCube2');
-    window.greenCube = window.greenMesh.physicsImpostor;
-    window.redCube = window.redMesh.physicsImpostor;
-    window.greenCube2 = window.greenMesh2.physicsImpostor;
-    window.redCube2 = window.redMesh2.physicsImpostor;
-    window.button = BABYLON.Mesh.CreateBox('button', 0.5, scene);
-    window.button.material = window.redMesh.material;
-    window.button.parent = camera; // The weapon will move with the player camera
-    window.button.position = new BABYLON.Vector3(0, -1, 2);
-    window.button.actionManager = new BABYLON.ActionManager(scene);
-    window.greenMesh.actionManager = new BABYLON.ActionManager(
-      scene);
-    window.redMesh.actionManager = new BABYLON.ActionManager(
-      scene);
-    window.greenMesh2.actionManager = new BABYLON.ActionManager(
-      scene);
-    window.redMesh2.actionManager = new BABYLON.ActionManager(
-      scene);
+    const greenMesh = scene.getMeshByID('greenCube');
+    const redMesh = scene.getMeshByID('redCube');
+    const greenMesh2 = scene.getMeshByID('greenCube2');
+    const redMesh2 = scene.getMeshByID('redCube2');
+    const greenCube = greenMesh.physicsImpostor;
+    const redCube = redMesh.physicsImpostor;
+    const greenCube2 = greenMesh2.physicsImpostor;
+    const redCube2 = redMesh2.physicsImpostor;
+    const button = BABYLON.Mesh.CreateBox('button', 0.5, scene);
+    button.material = redMesh.material;
+    button.parent = camera; // The weapon will move with the player camera
+    button.position = new BABYLON.Vector3(0, -1, 2);
+    button.actionManager = new BABYLON.ActionManager(scene);
+    greenMesh.actionManager = new BABYLON.ActionManager(scene);
+    redMesh.actionManager = new BABYLON.ActionManager(scene);
+    greenMesh2.actionManager = new BABYLON.ActionManager(scene);
+    redMesh2.actionManager = new BABYLON.ActionManager(scene);
     //
-    window.forceUp = function forceUp(mesh, cube) {
+    const forceUp = function forceUp(mesh, cube) {
       mesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction({
         trigger: BABYLON.ActionManager.OnPickTrigger,
         parameter: mesh,
@@ -69,35 +61,35 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
           mesh.getAbsolutePosition());
       }));
     };
-    window.forceUp(window.redMesh, window.redCube);
-    window.forceUp(window.redMesh2, window.redCube2);
-    window.forceUp(window.greenMesh, window.greenCube);
-    window.forceUp(window.greenMesh2, window.greenCube2);
+    forceUp(redMesh, redCube);
+    forceUp(redMesh2, redCube2);
+    forceUp(greenMesh, greenCube);
+    forceUp(greenMesh2, greenCube2);
     //
-    window.button.actionManager.registerAction(new BABYLON.ExecuteCodeAction({
+    button.actionManager.registerAction(new BABYLON.ExecuteCodeAction({
       trigger: BABYLON.ActionManager.OnPickTrigger,
-      parameter: window.button,
+      parameter: button,
     }, () => {
       // if (!window.newMesh === false) window.newMesh.dispose();
-      window.newMesh = BABYLON.Mesh.CreateBox('newMesh', 3,
+      const newMesh = BABYLON.Mesh.CreateBox('newMesh', 3,
         scene);
-      window.newMesh.material = window.redMesh.material;
+      newMesh.material = redMesh.material;
       // window.newMesh.parent = window.button;
-      window.newMesh.rotation.copyFrom(window.camera.rotation);
-      window.newMesh.position.copyFrom(window.button.absolutePosition);
-      window.newMesh.position.addInPlace(new BABYLON.Vector3(
-        0, 0, 0));
-      window.forwardLocal = new BABYLON.Vector3(0, 0, 40);
+      newMesh.rotation.copyFrom(camera.rotation);
+      newMesh.position.copyFrom(button.absolutePosition);
+      newMesh.position.addInPlace(new BABYLON.Vector3(0, 0,
+        0));
+      const forwardLocal = new BABYLON.Vector3(0, 0, 40);
       // window.newMesh.rotation = window.forwardGlobal;
       // const cam = camera.globalPosition;
       // const target = camera.getTarget();
-      window.newMesh.setPhysicsState(BABYLON.PhysicsEngine.BoxImpostor, { mass: 4 });
-      window.newImpostor = window.newMesh.physicsImpostor;
-      const speed = window.newMesh.getDirection(window.forwardLocal);
-      window.newImpostor.setLinearVelocity(speed);
+      newMesh.setPhysicsState(BABYLON.PhysicsEngine.BoxImpostor, { mass: 4 });
+      const newImpostor = newMesh.physicsImpostor;
+      const speed = newMesh.getDirection(forwardLocal);
+      newImpostor.setLinearVelocity(speed);
       // window.newImpostor.setLinearVelocity(new BABYLON.Vector3(
       //   5, 0, 0));
-      window.newMesh.checkCollisions = true;
+      newMesh.checkCollisions = true;
       // window.newImpostor.setLinearVelocity(new BABYLON.Vector3
       //   .Cross(cam, target) * new BABYLON.Vector3(0, 0,
       //     10));
