@@ -34,6 +34,10 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
     Y888888P YP  YP  YP 88       `Y88P'  `8888Y'    YP     `Y88P'  88   YD `8888Y'
 
     */
+    // const shark = scene.getMeshByName('shark');
+    // shark.skeleton.beginAnimation('armatureAction', true);
+    // const suzanne = scene.getMeshByName('Suzanne');
+    // scene.beginAnimation(suzanne, 0, 100, true);
     const greenMesh = scene.getMeshByID('greenCube');
     const redMesh = scene.getMeshByID('redCube');
     const greenMesh2 = scene.getMeshByID('greenCube2');
