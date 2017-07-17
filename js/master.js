@@ -85,8 +85,12 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       newMesh.position.copyFrom(button2.absolutePosition);
       newMesh.rotation.copyFrom(camera.rotation);
       const forwardLocal = new BABYLON.Vector3(0, 0, 70);
-      newMesh.setPhysicsState(BABYLON.PhysicsEngine.BoxImpostor, { mass: 3 });
-      const newImpostor = newMesh.physicsImpostor;
+      // newMesh.setPhysicsState(BABYLON.PhysicsEngine.BoxImpostor, { mass: 3 });
+      const newImpostor = new BABYLON.PhysicsImpostor(
+        newMesh, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 3 },
+        scene);
+      // PhysicsImpostor(BABYLON.PhysicsEngine
+      //   .BoxImpostor, { mass: 3 });
       const speed = newMesh.getDirection(forwardLocal);
       newImpostor.setLinearVelocity(speed);
       newMesh.checkCollisions = true;
@@ -109,6 +113,6 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
 window.addEventListener('resize', () => {
   engine.resize();
 });
-document.documentElement.addEventListener('touchmove', (event) => {
-  event.preventDefault();
-}, false);
+// document.documentElement.addEventListener('touchmove', (event) => {
+//   event.preventDefault();
+// }, false);
