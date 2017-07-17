@@ -5,8 +5,11 @@ const engine = new BABYLON.Engine(canvas, true);
 //
 BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
   const scene = scene1;
-  // scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.CannonJSPlugin());
-  scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.OimoJSPlugin());
+  const gravityVector = new BABYLON.Vector3(0, -9.81, 0);
+  const physicsPlugin = new BABYLON.OimoJSPlugin();
+  scene.enablePhysics(gravityVector, physicsPlugin);
+  // scene.getPhysicsEngine()
+  //   .setGravity(new BABYLON.Vector3(0, -9.81, 0));
   scene.workerCollisions = true;
   scene.fogMode = BABYLON.Scene.FOGMODE_EXP2;
   scene.fogDensity = 0.01;
@@ -15,7 +18,6 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
   scene.clearColor = new BABYLON.Color3(0, 0.259, 0.841);
   scene.fogColor = new BABYLON.Color3(0.2, 0.4, 0.8);
   const camera = scene.activeCamera;
-  // window.camera = camera;
   camera.fov = 1.65;
   //
   camera.inertia = 0.72;
@@ -34,10 +36,6 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
     Y888888P YP  YP  YP 88       `Y88P'  `8888Y'    YP     `Y88P'  88   YD `8888Y'
 
     */
-    // const shark = scene.getMeshByName('shark');
-    // shark.skeleton.beginAnimation('armatureAction', true);
-    // const suzanne = scene.getMeshByName('Suzanne');
-    // scene.beginAnimation(suzanne, 0, 100, true);
     const greenMesh = scene.getMeshByID('greenCube');
     const redMesh = scene.getMeshByID('redCube');
     const greenMesh2 = scene.getMeshByID('greenCube2');
@@ -85,12 +83,9 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       newMesh.position.copyFrom(button2.absolutePosition);
       newMesh.rotation.copyFrom(camera.rotation);
       const forwardLocal = new BABYLON.Vector3(0, 0, 70);
-      // newMesh.setPhysicsState(BABYLON.PhysicsEngine.BoxImpostor, { mass: 3 });
       const newImpostor = new BABYLON.PhysicsImpostor(
         newMesh, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 3 },
         scene);
-      // PhysicsImpostor(BABYLON.PhysicsEngine
-      //   .BoxImpostor, { mass: 3 });
       const speed = newMesh.getDirection(forwardLocal);
       newImpostor.setLinearVelocity(speed);
       newMesh.checkCollisions = true;
@@ -113,6 +108,3 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
 window.addEventListener('resize', () => {
   engine.resize();
 });
-// document.documentElement.addEventListener('touchmove', (event) => {
-//   event.preventDefault();
-// }, false);
