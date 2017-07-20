@@ -77,7 +77,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       trigger: BABYLON.ActionManager.OnPickTrigger,
       parameter: button,
     }, () => {
-      window.navigator.vibrate(60);
+      window.navigator.vibrate(16);
       const newMesh = BABYLON.Mesh.CreateBox('newMesh', 2,
         scene);
       newMesh.material = ice.material;
@@ -96,6 +96,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
         .LOCAL);
       setTimeout(() => {
         button.position = new BABYLON.Vector3(0, -2, 4);
+        window.navigator.vibrate(8);
       }, 85);
     }));
     scene.activeCamera.attachControl(canvas, true);
