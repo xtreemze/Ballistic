@@ -3,7 +3,7 @@ var __wpo = {
     "main": [
       "./",
       "./bundle.js",
-      "./js/babylon3.js",
+      "./js/custom2.js",
       "./js/oimo.min.js",
       "./js/pep.min.js",
       "./js/ballistic.babylon"
@@ -12,7 +12,7 @@ var __wpo = {
     "optional": []
   },
   "externals": [
-    "./js/babylon3.js",
+    "./js/custom2.js",
     "./js/oimo.min.js",
     "./js/pep.min.js",
     "./js/ballistic.babylon"
@@ -23,7 +23,7 @@ var __wpo = {
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-7-24 23:41:03",
+  "version": "2017-7-24 23:43:46",
   "name": "webpack-offline",
   "pluginVersion": "4.8.3",
   "relativePaths": true
