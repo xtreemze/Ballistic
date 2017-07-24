@@ -5,12 +5,13 @@ const engine = new BABYLON.Engine(canvas, true);
 //
 BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
   const scene = scene1;
+  // window.scene = scene1;
   const gravityVector = new BABYLON.Vector3(0, -9.81, 0);
   const physicsPlugin = new BABYLON.OimoJSPlugin();
   scene.enablePhysics(gravityVector, physicsPlugin);
   // scene.getPhysicsEngine()
   //   .setGravity(new BABYLON.Vector3(0, -9.81, 0));
-  scene.workerCollisions = true;
+  // scene.workerCollisions = true;
   scene.fogMode = BABYLON.Scene.FOGMODE_EXP2;
   scene.fogDensity = 0.01;
   scene.fogStart = 15.0;
@@ -77,27 +78,32 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       trigger: BABYLON.ActionManager.OnPickTrigger,
       parameter: button,
     }, () => {
-      window.navigator.vibrate(16);
+      // window.navigator.vibrate(5);
+      window.navigator.vibrate([25, 20, 25, 20, 16, 14, 16,
+        8, 15,
+      ]);
       const newMesh = BABYLON.Mesh.CreateBox('newMesh', 2,
         scene);
       newMesh.material = ice.material;
       newMesh.position.copyFrom(button2.absolutePosition);
       newMesh.rotation.copyFrom(camera.rotation);
-      const forwardLocal = new BABYLON.Vector3(0, 0, 70);
+      const forwardLocal = new BABYLON.Vector3(0, 0, 44);
       const newImpostor = new BABYLON.PhysicsImpostor(
-        newMesh, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 3 },
+        newMesh, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 5 },
         scene);
       const speed = newMesh.getDirection(forwardLocal);
       newImpostor.setLinearVelocity(speed);
       newMesh.checkCollisions = true;
-      setTimeout(() => { newMesh.dispose(); }, 5000);
+      setTimeout(() => {
+        newMesh.dispose();
+        newImpostor.dispose();
+      }, 3000);
       button.position = new BABYLON.Vector3(0, -2, 3.6);
       button.rotate(BABYLON.Axis.Z, Math.PI / 3, BABYLON.Space
         .LOCAL);
       setTimeout(() => {
         button.position = new BABYLON.Vector3(0, -2, 4);
-        window.navigator.vibrate(8);
-      }, 85);
+      }, 45);
     }));
     scene.activeCamera.attachControl(canvas, true);
     engine.runRenderLoop(
