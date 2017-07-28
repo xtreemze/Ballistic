@@ -5,17 +5,17 @@ const engine = new BABYLON.Engine(canvas, true);
 //
 BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
   const scene = scene1;
-  // window.scene = scene1;
+  window.scene = scene1;
   const gravityVector = new BABYLON.Vector3(0, -9.81, 0);
   const physicsPlugin = new BABYLON.OimoJSPlugin();
   scene.enablePhysics(gravityVector, physicsPlugin);
   // scene.getPhysicsEngine()
   //   .setGravity(new BABYLON.Vector3(0, -9.81, 0));
   // scene.workerCollisions = true;
-  scene.fogMode = BABYLON.Scene.FOGMODE_EXP2;
-  scene.fogDensity = 0.01;
-  scene.fogStart = 15.0;
-  scene.fogEnd = 150.0;
+  // scene.fogMode = BABYLON.Scene.FOGMODE_LINEAR;
+  // scene.fogDensity = 1;
+  // scene.fogStart = 0;
+  // scene.fogEnd = 320;
   scene.clearColor = new BABYLON.Color3(0, 0.259, 0.841);
   scene.fogColor = new BABYLON.Color3(0.2, 0.4, 0.8);
   const camera = scene.activeCamera;
@@ -60,6 +60,17 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
     greenMesh2.actionManager = new BABYLON.ActionManager(scene);
     redMesh2.actionManager = new BABYLON.ActionManager(scene);
     //
+    const lakeSound = new BABYLON.Sound('lake',
+      './audio/ambient_mixdown.mp3', scene, null, {
+        loop: true,
+        autoplay: true,
+        // spatialSound: true,
+        // distanceModel: 'linear',
+        // rolloffFactor: 0.1,
+        maxDistance: 10,
+      });
+    lakeSound.attachToMesh(button2);
+    //
     const forceUp = function forceUp(mesh, cube) {
       mesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction({
         trigger: BABYLON.ActionManager.OnPickTrigger,
@@ -82,8 +93,24 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       window.navigator.vibrate([25, 20, 25, 20, 16, 14, 16,
         8, 15,
       ]);
+      // const flare = new BABYLON.Sound('flare',
+      //   './audio/burn.mp3', scene, null, {
+      //     loop: false,
+      //     autoplay: true,
+      //   });
+      // flare.attachToMesh(button);
       const newMesh = BABYLON.Mesh.CreateBox('newMesh', 2,
         scene);
+      const cubeSound = new BABYLON.Sound('fire',
+        './audio/fire_mixdown.mp3', scene, null, {
+          loop: false,
+          autoplay: true,
+          // distanceModel: 'linear',
+          // rolloffFactor: 1.8,
+          maxDistance: 80,
+        });
+      // Sound will now follow the box mesh position
+      cubeSound.attachToMesh(newMesh);
       newMesh.material = ice.material;
       newMesh.position.copyFrom(button2.absolutePosition);
       newMesh.rotation.copyFrom(camera.rotation);
@@ -97,7 +124,8 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       setTimeout(() => {
         newMesh.dispose();
         newImpostor.dispose();
-      }, 3000);
+        cubeSound.dispose();
+      }, 6600);
       button.position = new BABYLON.Vector3(0, -2, 3.6);
       button.rotate(BABYLON.Axis.Z, Math.PI / 3, BABYLON.Space
         .LOCAL);

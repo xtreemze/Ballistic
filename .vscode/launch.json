@@ -34,7 +34,7 @@
     "type": "chrome",
     "request": "launch",
     "name": "Launch Chrome against Net2",
-    "url": "http://192.168.0.124:8080",
+    "url": "http://192.168.0.130/",
     "webRoot": "${workspaceRoot}",
     "sourceMaps": true,
     "runtimeArgs": ["--incognito", "--allow-running-insecure-content",
