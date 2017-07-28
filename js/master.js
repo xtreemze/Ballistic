@@ -19,8 +19,18 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
   scene.clearColor = new BABYLON.Color3(0, 0.259, 0.841);
   scene.fogColor = new BABYLON.Color3(0.2, 0.4, 0.8);
   const camera = scene.activeCamera;
+  window.inputManager = camera.inputs;
+  // window.inputManager.clear();
+  // window.inputManager.addDeviceOrientation();
+  // window.inputManager.addKeyboard();
+  // window.inputManager.addMouse();
+  // window.inputManager.addTouch();
+  // window.inputManager.addVirtualJoystick();
+  // window.inputManager.attached.touch.detachControl();
+  // window.inputManager.removeByType('FreeCameraKeyboardMoveInput');
+  // window.inputManager.attached.mouse.detachControl();
   camera.fov = 1.65;
-  //
+  // //
   camera.inertia = 0.72;
   camera.speed = 2;
   camera.angularSensibility = 1400;
@@ -47,6 +57,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
     const greenCube2 = greenMesh2.physicsImpostor;
     const redCube2 = redMesh2.physicsImpostor;
     const button = BABYLON.Mesh.CreateBox('button', 0.8, scene);
+    window.button = button;
     button.material = redMesh.material;
     button.parent = camera; // The weapon will move with the player camera
     button.position = new BABYLON.Vector3(0, -2, 4);
@@ -112,13 +123,13 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       // Sound will now follow the box mesh position
       cubeSound.attachToMesh(newMesh);
       newMesh.material = ice.material;
-      newMesh.position.copyFrom(button2.absolutePosition);
+      newMesh.position.copyFrom(button.absolutePosition);
       newMesh.rotation.copyFrom(camera.rotation);
       const forwardLocal = new BABYLON.Vector3(0, 0, 44);
       const newImpostor = new BABYLON.PhysicsImpostor(
         newMesh, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 5 },
         scene);
-      const speed = newMesh.getDirection(forwardLocal);
+      const speed = button2.getDirection(forwardLocal);
       newImpostor.setLinearVelocity(speed);
       newMesh.checkCollisions = true;
       setTimeout(() => {
