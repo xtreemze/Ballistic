@@ -178,6 +178,9 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
                 maxDistance: 160,
               });
             thud.attachToMesh(newMesh);
+            setTimeout(() => {
+              thud.dispose();
+            }, 1000);
           });
         // Vibrate
         window.navigator.vibrate(15);
@@ -186,7 +189,11 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
         newMesh.dispose();
         newImpostor.dispose();
         cubeSound.dispose();
+        whoosh.dispose();
       }, 6000);
+      setTimeout(() => {
+        whoosh.dispose();
+      }, 2000);
       button.position = new BABYLON.Vector3(0, -2, 3.6);
       button.rotate(BABYLON.Axis.Z, Math.PI / 3, BABYLON.Space
         .LOCAL);
