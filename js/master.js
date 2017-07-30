@@ -76,26 +76,27 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       './audio/ambient_mixdown.mp3', scene, null, {
         loop: true,
         autoplay: true,
-        // spatialSound: true,
+        // spatialSound: false,
         // distanceModel: 'linear',
         // rolloffFactor: 0.1,
-        maxDistance: 10,
+        // maxDistance: 7,
+        volume: 0.2,
       });
-    lakeSound.attachToMesh(button2);
+    // lakeSound.attachToMesh(button2);
     //
-    const forceUp = function forceUp(mesh, cube) {
-      mesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction({
-        trigger: BABYLON.ActionManager.OnPickTrigger,
-        parameter: mesh,
-      }, () => {
-        cube.applyImpulse(new BABYLON.Vector3(0, 100, 0),
-          mesh.getAbsolutePosition());
-      }));
-    };
-    forceUp(redMesh, redCube);
-    forceUp(redMesh2, redCube2);
-    forceUp(greenMesh, greenCube);
-    forceUp(greenMesh2, greenCube2);
+    // const forceUp = function forceUp(mesh, cube) {
+    //   mesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction({
+    //     trigger: BABYLON.ActionManager.OnPickTrigger,
+    //     parameter: mesh,
+    //   }, () => {
+    //     cube.applyImpulse(new BABYLON.Vector3(0, 100, 0),
+    //       mesh.getAbsolutePosition());
+    //   }));
+    // };
+    // forceUp(redMesh, redCube);
+    // forceUp(redMesh2, redCube2);
+    // forceUp(greenMesh, greenCube);
+    // forceUp(greenMesh2, greenCube2);
     //
     button.actionManager.registerAction(new BABYLON.ExecuteCodeAction({
       trigger: BABYLON.ActionManager.OnPickTrigger,
@@ -106,16 +107,16 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       ]);
       const newMesh = BABYLON.Mesh.CreateBox('newMesh', 2,
         scene);
-      const cubeSound = new BABYLON.Sound('fire',
-        './audio/fire_mixdown.mp3', scene, null, {
-          loop: false,
-          autoplay: true,
-          // distanceModel: 'linear',
-          // rolloffFactor: 1.8,
-          maxDistance: 80,
-        });
-      // Sound will now follow the box mesh position
-      cubeSound.attachToMesh(newMesh);
+      // const cubeSound = new BABYLON.Sound('fire',
+      //   './audio/fire_mixdown.mp3', scene, null, {
+      //     loop: false,
+      //     autoplay: true,
+      //     // distanceModel: 'linear',
+      //     // rolloffFactor: 1.8,
+      //     maxDistance: 80,
+      //   });
+      // // Sound will now follow the box mesh position
+      // cubeSound.attachToMesh(newMesh);
       const whoosh = new BABYLON.Sound('whoosh',
         './audio/whoosh_mixdown.mp3', scene, null, {
           loop: false,
@@ -123,9 +124,10 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
           // spatialSound: true,
           // distanceModel: 'linear',
           // rolloffFactor: 0.1,
-          maxDistance: 60,
+          // maxDistance: 5,
+          volume: 0.2,
         });
-      whoosh.attachToMesh(button);
+      // whoosh.attachToMesh(button);
       newMesh.material = ice.material;
       newMesh.position.copyFrom(button.absolutePosition);
       newMesh.rotation.copyFrom(camera.rotation);
@@ -142,58 +144,59 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       ];
       for (let i = 0; i < greenCubes.length; i += 1) {
         const cube = greenCubes[i];
-        newImpostor.registerOnPhysicsCollide(cube, function colorChange(
-          main, collided) {
-          collided.object.material.diffuseColor = new BABYLON
+        cube.registerOnPhysicsCollide(newImpostor, (main,
+          collided) => {
+          main.object.material.diffuseColor = new BABYLON
             .Color3(Math.random(), Math.random(), Math.random());
           // // Sound
-          // const thud = new BABYLON.Sound('thud',
-          //   './audio/thud_mixdown.mp3', scene, null, {
-          //     loop: false,
-          //     autoplay: true,
-          //     // spatialSound: true,
-          //     // distanceModel: 'linear',
-          //     // rolloffFactor: 0.1,
-          //     maxDistance: 160,
-          //   });
-          // thud.attachToMesh(newMesh);
+          const thud = new BABYLON.Sound('thud',
+            './audio/thud_mixdown.mp3', scene, null, {
+              loop: false,
+              autoplay: true,
+              maxDistance: 200,
+              // volume: 1,
+            });
+          thud.attachToMesh(main.object.geometry._meshes[
+            0]);
+          // Vibrate
+          window.navigator.vibrate([20, 10, 20, 10, 20]);
+          setTimeout(() => {
+            thud.dispose();
+          }, 2000);
         });
-        // Vibrate
-        // window.navigator.vibrate(15);
       }
       // Collision
-      const levelItems = scene.meshes;
-      for (let i = 0; i < scene.meshes.length; i += 1) {
-        const levelItem = levelItems[i];
-        newImpostor.registerOnPhysicsCollide(levelItem.physicsImpostor,
-          function thuded(main, collided) {
-            // Sound
-            const thud = new BABYLON.Sound('thud',
-              './audio/thud_mixdown.mp3', scene, null, {
-                loop: false,
-                autoplay: true,
-                // spatialSound: true,
-                // distanceModel: 'linear',
-                // rolloffFactor: 0.1,
-                maxDistance: 160,
-              });
-            thud.attachToMesh(newMesh);
-            setTimeout(() => {
-              thud.dispose();
-            }, 1000);
-          });
-        // Vibrate
-        window.navigator.vibrate(15);
-      }
+      // const levelItems = scene.meshes;
+      // for (let i = 0; i < scene.meshes.length; i += 1) {
+      //   const levelItem = levelItems[i];
+      //   newImpostor.registerOnPhysicsCollide(levelItem.physicsImpostor,
+      //     function thuded(main, collided) {
+      //       // Sound
+      //       const thud = new BABYLON.Sound('thud',
+      //         './audio/thud_mixdown.mp3', scene, null, {
+      //           loop: false,
+      //           autoplay: true,
+      //           // spatialSound: true,
+      //           // distanceModel: 'linear',
+      //           // rolloffFactor: 0.1,
+      //           maxDistance: 160,
+      //         });
+      //       thud.attachToMesh(newMesh);
+      //       setTimeout(() => {
+      //         thud.dispose();
+      //       }, 1000);
+      //     });
+      //   // Vibrate
+      //   window.navigator.vibrate(15);
+      // }
       setTimeout(() => {
         newMesh.dispose();
         newImpostor.dispose();
-        cubeSound.dispose();
-        whoosh.dispose();
-      }, 6000);
+        // cubeSound.dispose();
+      }, 4000);
       setTimeout(() => {
         whoosh.dispose();
-      }, 2000);
+      }, 1000);
       button.position = new BABYLON.Vector3(0, -2, 3.6);
       button.rotate(BABYLON.Axis.Z, Math.PI / 3, BABYLON.Space
         .LOCAL);
