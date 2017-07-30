@@ -48,6 +48,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
 
     */
     const greenMesh = scene.getMeshByID('greenCube');
+    // const iceberg = scene.getMeshByID('iceberg');
     const redMesh = scene.getMeshByID('redCube');
     const greenMesh2 = scene.getMeshByID('greenCube2');
     const redMesh2 = scene.getMeshByID('redCube2');
@@ -100,16 +101,9 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       trigger: BABYLON.ActionManager.OnPickTrigger,
       parameter: button,
     }, () => {
-      // window.navigator.vibrate(5);
       window.navigator.vibrate([25, 20, 25, 20, 16, 14, 16,
         8, 15,
       ]);
-      // const flare = new BABYLON.Sound('flare',
-      //   './audio/burn.mp3', scene, null, {
-      //     loop: false,
-      //     autoplay: true,
-      //   });
-      // flare.attachToMesh(button);
       const newMesh = BABYLON.Mesh.CreateBox('newMesh', 2,
         scene);
       const cubeSound = new BABYLON.Sound('fire',
@@ -122,6 +116,16 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
         });
       // Sound will now follow the box mesh position
       cubeSound.attachToMesh(newMesh);
+      const whoosh = new BABYLON.Sound('whoosh',
+        './audio/whoosh_mixdown.mp3', scene, null, {
+          loop: false,
+          autoplay: true,
+          // spatialSound: true,
+          // distanceModel: 'linear',
+          // rolloffFactor: 0.1,
+          maxDistance: 60,
+        });
+      whoosh.attachToMesh(button);
       newMesh.material = ice.material;
       newMesh.position.copyFrom(button.absolutePosition);
       newMesh.rotation.copyFrom(camera.rotation);
@@ -132,11 +136,57 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       const speed = button2.getDirection(forwardLocal);
       newImpostor.setLinearVelocity(speed);
       newMesh.checkCollisions = true;
+      // Collision
+      const greenCubes = [greenCube2, greenCube, redCube,
+        redCube2,
+      ];
+      for (let i = 0; i < greenCubes.length; i += 1) {
+        const cube = greenCubes[i];
+        newImpostor.registerOnPhysicsCollide(cube, function colorChange(
+          main, collided) {
+          collided.object.material.diffuseColor = new BABYLON
+            .Color3(Math.random(), Math.random(), Math.random());
+          // // Sound
+          // const thud = new BABYLON.Sound('thud',
+          //   './audio/thud_mixdown.mp3', scene, null, {
+          //     loop: false,
+          //     autoplay: true,
+          //     // spatialSound: true,
+          //     // distanceModel: 'linear',
+          //     // rolloffFactor: 0.1,
+          //     maxDistance: 160,
+          //   });
+          // thud.attachToMesh(newMesh);
+        });
+        // Vibrate
+        // window.navigator.vibrate(15);
+      }
+      // Collision
+      const levelItems = scene.meshes;
+      for (let i = 0; i < scene.meshes.length; i += 1) {
+        const levelItem = levelItems[i];
+        newImpostor.registerOnPhysicsCollide(levelItem.physicsImpostor,
+          function thuded(main, collided) {
+            // Sound
+            const thud = new BABYLON.Sound('thud',
+              './audio/thud_mixdown.mp3', scene, null, {
+                loop: false,
+                autoplay: true,
+                // spatialSound: true,
+                // distanceModel: 'linear',
+                // rolloffFactor: 0.1,
+                maxDistance: 160,
+              });
+            thud.attachToMesh(newMesh);
+          });
+        // Vibrate
+        window.navigator.vibrate(15);
+      }
       setTimeout(() => {
         newMesh.dispose();
         newImpostor.dispose();
         cubeSound.dispose();
-      }, 6600);
+      }, 6000);
       button.position = new BABYLON.Vector3(0, -2, 3.6);
       button.rotate(BABYLON.Axis.Z, Math.PI / 3, BABYLON.Space
         .LOCAL);
