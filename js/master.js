@@ -12,7 +12,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
   scene.enablePhysics(gravityVector, physicsPlugin);
   // scene.getPhysicsEngine()
   //   .setGravity(new BABYLON.Vector3(0, -9.81, 0));
-  scene.workerCollisions = true;
+  scene.workerCollisions = false;
   // scene.fogMode = BABYLON.Scene.FOGMODE_LINEAR;
   // scene.fogDensity = 1;
   // scene.fogStart = 0;
