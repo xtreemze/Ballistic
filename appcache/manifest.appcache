@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#ver:2017-7-31 12:55:22
+#ver:2017-7-31 14:23:00
 #plugin:4.8.3
 
 CACHE:
@@ -8,6 +8,9 @@ CACHE:
 ../js/custom2.js
 ../js/oimo.min.js
 ../js/ballistic.babylon
+../audio/ambient_mixdown.mp3
+../audio/whoosh_mixdown.mp3
+../audio/thud_mixdown.mp3
 
 NETWORK:
 *

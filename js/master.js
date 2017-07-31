@@ -19,6 +19,12 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
   // scene.fogEnd = 320;
   // scene.clearColor = new BABYLON.Color3(0, 0.259, 0.841);
   // scene.fogColor = new BABYLON.Color3(0.2, 0.4, 0.8);
+  const lakeSound = new BABYLON.Sound('lake',
+    './audio/ambient_mixdown.mp3', scene, null, {
+      loop: true,
+      autoplay: true,
+      // volume: 1,
+    });
   const camera = scene.activeCamera;
   window.inputManager = camera.inputs;
   // window.inputManager.clear();
@@ -48,8 +54,10 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
     Y888888P YP  YP  YP 88       `Y88P'  `8888Y'    YP     `Y88P'  88   YD `8888Y'
 
     */
+    let colored;
     const greenMesh = scene.getMeshByID('greenCube');
-    // const iceberg = scene.getMeshByID('iceberg');
+    const icebergMesh = scene.getMeshByID('icebergMesh');
+    const monkeyMesh = scene.getMeshByID('monkeyMesh');
     const redMesh = scene.getMeshByID('redCube');
     const greenMesh2 = scene.getMeshByID('greenCube2');
     const redMesh2 = scene.getMeshByID('redCube2');
@@ -58,6 +66,17 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
     const redCube = redMesh.physicsImpostor;
     const greenCube2 = greenMesh2.physicsImpostor;
     const redCube2 = redMesh2.physicsImpostor;
+    const monkey = monkeyMesh.physicsImpostor;
+    const iceberg = icebergMesh.physicsImpostor;
+    /*
+    d8888b. db    db d888888b d888888b  .d88b.  d8b   db
+    88  `8D 88    88 `~~88~~' `~~88~~' .8P  Y8. 888o  88
+    88oooY' 88    88    88       88    88    88 88V8o 88
+    88~~~b. 88    88    88       88    88    88 88 V8o88
+    88   8D 88b  d88    88       88    `8b  d8' 88  V888
+    Y8888P' ~Y8888P'    YP       YP     `Y88P'  VP   V8P
+
+    */
     const button = BABYLON.Mesh.CreateBox('button', 0.8, scene);
     window.button = button;
     button.material = redMesh.material;
@@ -73,12 +92,14 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
     greenMesh2.actionManager = new BABYLON.ActionManager(scene);
     redMesh2.actionManager = new BABYLON.ActionManager(scene);
     //
-    const lakeSound = new BABYLON.Sound('lake',
-      './audio/ambient_mixdown.mp3', scene, null, {
-        loop: true,
-        autoplay: true,
-        // volume: 1,
-      });
+    /*
+    d888888b d8888b. d888888b  d888b   d888b  d88888b d8888b.
+    `~~88~~' 88  `8D   `88'   88' Y8b 88' Y8b 88'     88  `8D
+       88    88oobY'    88    88      88      88ooooo 88oobY'
+       88    88`8b      88    88  ooo 88  ooo 88~~~~~ 88`8b
+       88    88 `88.   .88.   88. ~8~ 88. ~8~ 88.     88 `88.
+       YP    88   YD Y888888P  Y888P   Y888P  Y88888P 88   YD
+     */
     button.actionManager.registerAction(new BABYLON.ExecuteCodeAction({
       trigger: BABYLON.ActionManager.OnPickTrigger,
       parameter: button,
@@ -118,33 +139,49 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       const speed = button2.getDirection(forwardLocal);
       newImpostor.setLinearVelocity(speed);
       // newMesh.checkCollisions = true;
-      // Collision
+      /*
+       .o88b.  .d88b.  db      db      d888888b .d8888. d888888b  .d88b.  d8b   db
+      d8P  Y8 .8P  Y8. 88      88        `88'   88'  YP   `88'   .8P  Y8. 888o  88
+      8P      88    88 88      88         88    `8bo.      88    88    88 88V8o 88
+      8b      88    88 88      88         88      `Y8b.    88    88    88 88 V8o88
+      Y8b  d8 `8b  d8' 88booo. 88booo.   .88.   db   8D   .88.   `8b  d8' 88  V888
+       `Y88P'  `Y88P'  Y88888P Y88888P Y888888P `8888Y' Y888888P  `Y88P'  VP   V8P
+
+             */
       const greenCubes = [greenCube2, greenCube, redCube,
-        redCube2,
+        redCube2, monkey, iceberg,
       ];
-      for (let i = 0; i < greenCubes.length; i += 1) {
-        const cube = greenCubes[i];
-        cube.registerOnPhysicsCollide(newImpostor, (main,
-          collided) => {
-          main.object.material.diffuseColor = new BABYLON
-            .Color3(Math.random(), Math.random(), Math.random());
-          // // Sound
-          const thud = new BABYLON.Sound('thud',
-            './audio/thud_mixdown.mp3', scene, null, {
-              loop: false,
-              autoplay: true,
-              maxDistance: 200,
-              // volume: 1,
-            });
-          thud.attachToMesh(main.object.geometry._meshes[
-            0]);
-          // Vibrate
-          window.navigator.vibrate([20, 10, 20, 10, 20]);
-          setTimeout(() => {
-            thud.dispose();
-          }, 2000);
-        });
-      }
+      // for (let i = 0; i < greenCubes.length; i += 1) {
+      // const cube = greenCubes[i];
+      newImpostor.registerOnPhysicsCollide(greenCubes, (
+        main, collided) => {
+        // Color
+        if (collided === monkey) {
+          colored = redCube;
+        } else if (collided === iceberg) {
+          colored = greenCube;
+        } else {
+          colored = collided;
+        }
+        // // Sound
+        const thud = new BABYLON.Sound('thud',
+          './audio/thud_mixdown.mp3', scene, null, {
+            loop: false,
+            autoplay: true,
+            maxDistance: 200,
+            // volume: 1,
+          });
+        thud.attachToMesh(collided.object.geometry._meshes[
+          0]);
+        colored.object.material.diffuseColor = new BABYLON
+          .Color3(Math.random(), Math.random(), Math.random());
+        // Vibrate
+        window.navigator.vibrate([20, 10, 20, 10, 20]);
+        setTimeout(() => {
+          thud.dispose();
+        }, 1000);
+      });
+      // }
       setTimeout(() => {
         newMesh.dispose();
         newImpostor.dispose();
