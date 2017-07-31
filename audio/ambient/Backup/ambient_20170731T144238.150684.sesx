@@ -3,7 +3,7 @@
 <sesx version="1.3">
 
   <session appBuild="10.0.1.8" appVersion="10.0" audioChannelType="stereo" bitDepth="32" duration="10861747" sampleRate="44100">
-    <name>ambient.sesx</name>
+    <name>ambient_20170731T144238.150684.sesx</name>
     <tracks>
       <audioTrack automationLaneOpenState="false" id="10001" index="1" select="false" visible="true">
         <trackParameters trackHeight="134" trackHue="-1" trackMinimized="false">
@@ -191,7 +191,7 @@
             <parameter index="0" name="volume" parameterValue="1"/>
             <parameter index="1" name="static gain" parameterValue="1"/>
           </component>
-          <component componentGuid="2a506d7d-40ee-48c0-a76c-ecdc8d06021f" componentID="Audition.Mute" id="clipMute" name="Mute" powered="true">
+          <component componentGuid="98779a18-57b2-408b-8e1d-b578734838ff" componentID="Audition.Mute" id="clipMute" name="Mute" powered="true">
             <parameter index="0" parameterValue="0"/>
             <parameter index="1" name="mute" parameterValue="0"/>
           </component>
@@ -212,7 +212,7 @@
             <parameter index="0" name="volume" parameterValue="1"/>
             <parameter index="1" name="static gain" parameterValue="1"/>
           </component>
-          <component componentGuid="db34887a-794b-452e-9a71-86c6e9496e69" componentID="Audition.Mute" id="clipMute" name="Mute" powered="true">
+          <component componentGuid="8126afa0-bac0-46c6-be2c-34f184b56a3e" componentID="Audition.Mute" id="clipMute" name="Mute" powered="true">
             <parameter index="0" parameterValue="0"/>
             <parameter index="1" name="mute" parameterValue="0"/>
           </component>
@@ -415,7 +415,7 @@
             <parameter index="0" name="volume" parameterValue="1"/>
             <parameter index="1" name="static gain" parameterValue="1"/>
           </component>
-          <component componentGuid="57b71204-e359-4441-b2f1-bf65509110c6" componentID="Audition.Mute" id="clipMute" name="Mute" powered="true">
+          <component componentGuid="cd788640-e557-49b3-9349-9b18ac91f866" componentID="Audition.Mute" id="clipMute" name="Mute" powered="true">
             <parameter index="0" parameterValue="0"/>
             <parameter index="1" name="mute" parameterValue="0"/>
           </component>
@@ -436,7 +436,7 @@
             <parameter index="0" name="volume" parameterValue="1"/>
             <parameter index="1" name="static gain" parameterValue="1"/>
           </component>
-          <component componentGuid="482ce511-8544-4225-b4cd-062f170f84f4" componentID="Audition.Mute" id="clipMute" name="Mute" powered="true">
+          <component componentGuid="4b00817f-58a8-481b-88c1-4a267c7bbb91" componentID="Audition.Mute" id="clipMute" name="Mute" powered="true">
             <parameter index="0" parameterValue="0"/>
             <parameter index="1" name="mute" parameterValue="0"/>
           </component>
@@ -639,7 +639,7 @@
             <parameter index="0" name="volume" parameterValue="2.0491369"/>
             <parameter index="1" name="static gain" parameterValue="1"/>
           </component>
-          <component componentGuid="fa87771a-cfdd-4877-8677-792399a05241" componentID="Audition.Mute" id="clipMute" name="Mute" powered="true">
+          <component componentGuid="8541e1a0-bd7c-4818-82ad-582b49754104" componentID="Audition.Mute" id="clipMute" name="Mute" powered="true">
             <parameter index="0" parameterValue="0"/>
             <parameter index="1" name="mute" parameterValue="0"/>
           </component>
@@ -856,7 +856,7 @@
             <parameter index="0" name="volume" parameterValue="2.5590134"/>
             <parameter index="1" name="static gain" parameterValue="1"/>
           </component>
-          <component componentGuid="170e7bf6-9db2-4427-bb66-9e0d136c7f07" componentID="Audition.Mute" id="clipMute" name="Mute" powered="true">
+          <component componentGuid="e2667989-4a94-4777-91c5-ac9a75b430eb" componentID="Audition.Mute" id="clipMute" name="Mute" powered="true">
             <parameter index="0" parameterValue="0"/>
             <parameter index="1" name="mute" parameterValue="0"/>
           </component>
@@ -1059,7 +1059,7 @@
             <parameter index="0" name="volume" parameterValue="2.0491369"/>
             <parameter index="1" name="static gain" parameterValue="1"/>
           </component>
-          <component componentGuid="1d5909a5-62db-4d2c-ab54-d5b7b9ee3387" componentID="Audition.Mute" id="clipMute" name="Mute" powered="true">
+          <component componentGuid="535368aa-30e8-4833-a5e3-87e95bf4cf41" componentID="Audition.Mute" id="clipMute" name="Mute" powered="true">
             <parameter index="0" parameterValue="0"/>
             <parameter index="1" name="mute" parameterValue="0"/>
           </component>
@@ -1262,7 +1262,7 @@
             <parameter index="0" name="volume" parameterValue="2.5590134"/>
             <parameter index="1" name="static gain" parameterValue="1"/>
           </component>
-          <component componentGuid="cb57ab1c-a382-4e7f-a470-c0305867c051" componentID="Audition.Mute" id="clipMute" name="Mute" powered="true">
+          <component componentGuid="d956643e-ed62-4021-b96c-292a3ce0d0ad" componentID="Audition.Mute" id="clipMute" name="Mute" powered="true">
             <parameter index="0" parameterValue="0"/>
             <parameter index="1" name="mute" parameterValue="0"/>
           </component>
@@ -1395,8 +1395,8 @@
          <xmp:CreateDate>2017-07-28T16:00:58+02:00</xmp:CreateDate>
          <xmp:MetadataDate>2017-07-31T14:42:38+02:00</xmp:MetadataDate>
          <xmp:ModifyDate>2017-07-31T14:42:38+02:00</xmp:ModifyDate>
-         <xmpMM:InstanceID>xmp.iid:b4207aa1-06ed-f748-9266-6b4495f5a706</xmpMM:InstanceID>
-         <xmpMM:DocumentID>xmp.did:3aa20360-b0cb-9442-917f-b4cc5c1fa896</xmpMM:DocumentID>
+         <xmpMM:InstanceID>xmp.iid:bd91b9f5-fe82-3347-9e42-aefb33e597f2</xmpMM:InstanceID>
+         <xmpMM:DocumentID>xmp.did:bd91b9f5-fe82-3347-9e42-aefb33e597f2</xmpMM:DocumentID>
          <xmpMM:OriginalDocumentID>xmp.did:58f6941f-de9e-a345-893f-8e9cf8f01219</xmpMM:OriginalDocumentID>
          <xmpMM:History>
             <rdf:Seq>
@@ -1701,11 +1701,25 @@
                   <stEvt:softwareAgent>Adobe Audition CC 2017.0 (Windows)</stEvt:softwareAgent>
                   <stEvt:changed>/</stEvt:changed>
                </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>saved</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:76869e1c-9540-0c47-ba5f-9bd2968afdf6</stEvt:instanceID>
+                  <stEvt:when>2017-07-31T14:42:38+02:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Audition CC 2017.0 (Windows)</stEvt:softwareAgent>
+                  <stEvt:changed>/metadata</stEvt:changed>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>saved</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:bd91b9f5-fe82-3347-9e42-aefb33e597f2</stEvt:instanceID>
+                  <stEvt:when>2017-07-31T14:42:38+02:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Audition CC 2017.0 (Windows)</stEvt:softwareAgent>
+                  <stEvt:changed>/</stEvt:changed>
+               </rdf:li>
             </rdf:Seq>
          </xmpMM:History>
          <xmpMM:DerivedFrom rdf:parseType="Resource">
-            <stRef:instanceID>xmp.iid:6515905d-f04a-7848-8620-76dedfabef71</stRef:instanceID>
-            <stRef:documentID>xmp.did:a04bdc6c-1029-9c40-9328-5506ad90bf37</stRef:documentID>
+            <stRef:instanceID>xmp.iid:76869e1c-9540-0c47-ba5f-9bd2968afdf6</stRef:instanceID>
+            <stRef:documentID>xmp.did:3aa20360-b0cb-9442-917f-b4cc5c1fa896</stRef:documentID>
             <stRef:originalDocumentID>xmp.did:58f6941f-de9e-a345-893f-8e9cf8f01219</stRef:originalDocumentID>
          </xmpMM:DerivedFrom>
          <dc:format>application/xml</dc:format>
@@ -1944,8 +1958,8 @@
   </session>
 
   <files>
-    <file absolutePath="C:\Users\Media\Desktop\Arcade\Ballistic\audio\ambient\Imported Files\chime.mp3" id="0" importerPrivateSettings="BitsPerSecond:0:320000;CompressionQuality:0:4;CompressionType:0:0;" mediaHandler="AmioMP3" relativePath="Imported Files/chime.mp3"/>
-    <file absolutePath="C:\Users\Media\Desktop\Arcade\Ballistic\audio\ambient\Imported Files\lake.mp3" id="1" importerPrivateSettings="BitsPerSecond:0:320000;CompressionQuality:0:4;CompressionType:0:0;" mediaHandler="AmioMP3" relativePath="Imported Files/lake.mp3"/>
+    <file absolutePath="C:\Users\Media\Desktop\Arcade\Ballistic\audio\ambient\Imported Files\chime.mp3" id="0" importerPrivateSettings="BitsPerSecond:0:320000;CompressionQuality:0:4;CompressionType:0:0;" mediaHandler="AmioMP3" recoveryID="3b426cf2-6207-48ff-80d2-6d7cced2876f" relativePath="../Imported Files/chime.mp3"/>
+    <file absolutePath="C:\Users\Media\Desktop\Arcade\Ballistic\audio\ambient\Imported Files\lake.mp3" id="1" importerPrivateSettings="BitsPerSecond:0:320000;CompressionQuality:0:4;CompressionType:0:0;" mediaHandler="AmioMP3" recoveryID="759a5185-4198-453e-813d-87e4e225af59" relativePath="../Imported Files/lake.mp3"/>
   </files>
 
   <audioDevice inputID="AC4A6500-36F1-4821-BF16-E35D44C2F52A" outputID="F0E61FB7-8EB4-4930-BD97-39D9468A0EE6">

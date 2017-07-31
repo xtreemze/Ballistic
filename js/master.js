@@ -174,22 +174,22 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
         thud.attachToMesh(collided.object.geometry._meshes[
           0]);
         colored.object.material.diffuseColor = new BABYLON
-          .Color3(Math.random(), Math.random(), Math.random());
+          .Color3(Math.random(), Math.random(), 0.155);
         // Vibrate
         window.navigator.vibrate([20, 10, 20, 10, 20]);
         setTimeout(() => {
           thud.dispose();
-        }, 1000);
+        }, 500);
       });
       // }
       setTimeout(() => {
         newMesh.dispose();
         newImpostor.dispose();
         // cubeSound.dispose();
-      }, 4000);
+      }, 3000);
       setTimeout(() => {
         whoosh.dispose();
-      }, 1000);
+      }, 500);
       button.position = new BABYLON.Vector3(0, -2, 3.6);
       button.rotate(BABYLON.Axis.Z, Math.PI / 3, BABYLON.Space
         .LOCAL);
