@@ -8,16 +8,17 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
   window.scene = scene1;
   const gravityVector = new BABYLON.Vector3(0, -9.81, 0);
   const physicsPlugin = new BABYLON.OimoJSPlugin();
+  // const physicsPlugin = new BABYLON.CannonJSPlugin();
   scene.enablePhysics(gravityVector, physicsPlugin);
   // scene.getPhysicsEngine()
   //   .setGravity(new BABYLON.Vector3(0, -9.81, 0));
-  // scene.workerCollisions = true;
+  scene.workerCollisions = true;
   // scene.fogMode = BABYLON.Scene.FOGMODE_LINEAR;
   // scene.fogDensity = 1;
   // scene.fogStart = 0;
   // scene.fogEnd = 320;
-  scene.clearColor = new BABYLON.Color3(0, 0.259, 0.841);
-  scene.fogColor = new BABYLON.Color3(0.2, 0.4, 0.8);
+  // scene.clearColor = new BABYLON.Color3(0, 0.259, 0.841);
+  // scene.fogColor = new BABYLON.Color3(0.2, 0.4, 0.8);
   const camera = scene.activeCamera;
   window.inputManager = camera.inputs;
   // window.inputManager.clear();
@@ -76,28 +77,8 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       './audio/ambient_mixdown.mp3', scene, null, {
         loop: true,
         autoplay: true,
-        // spatialSound: false,
-        // distanceModel: 'linear',
-        // rolloffFactor: 0.1,
-        // maxDistance: 7,
-        volume: 0.2,
+        // volume: 1,
       });
-    // lakeSound.attachToMesh(button2);
-    //
-    // const forceUp = function forceUp(mesh, cube) {
-    //   mesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction({
-    //     trigger: BABYLON.ActionManager.OnPickTrigger,
-    //     parameter: mesh,
-    //   }, () => {
-    //     cube.applyImpulse(new BABYLON.Vector3(0, 100, 0),
-    //       mesh.getAbsolutePosition());
-    //   }));
-    // };
-    // forceUp(redMesh, redCube);
-    // forceUp(redMesh2, redCube2);
-    // forceUp(greenMesh, greenCube);
-    // forceUp(greenMesh2, greenCube2);
-    //
     button.actionManager.registerAction(new BABYLON.ExecuteCodeAction({
       trigger: BABYLON.ActionManager.OnPickTrigger,
       parameter: button,
@@ -121,11 +102,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
         './audio/whoosh_mixdown.mp3', scene, null, {
           loop: false,
           autoplay: true,
-          // spatialSound: true,
-          // distanceModel: 'linear',
-          // rolloffFactor: 0.1,
-          // maxDistance: 5,
-          volume: 0.2,
+          // volume: 1,
         });
       // whoosh.attachToMesh(button);
       newMesh.material = ice.material;
@@ -133,11 +110,14 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       newMesh.rotation.copyFrom(camera.rotation);
       const forwardLocal = new BABYLON.Vector3(0, 0, 44);
       const newImpostor = new BABYLON.PhysicsImpostor(
-        newMesh, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 5 },
-        scene);
+        newMesh, BABYLON.PhysicsImpostor.BoxImpostor, {
+          mass: 5,
+          restitution: 0.2,
+          friction: 10,
+        }, scene);
       const speed = button2.getDirection(forwardLocal);
       newImpostor.setLinearVelocity(speed);
-      newMesh.checkCollisions = true;
+      // newMesh.checkCollisions = true;
       // Collision
       const greenCubes = [greenCube2, greenCube, redCube,
         redCube2,
@@ -165,30 +145,6 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
           }, 2000);
         });
       }
-      // Collision
-      // const levelItems = scene.meshes;
-      // for (let i = 0; i < scene.meshes.length; i += 1) {
-      //   const levelItem = levelItems[i];
-      //   newImpostor.registerOnPhysicsCollide(levelItem.physicsImpostor,
-      //     function thuded(main, collided) {
-      //       // Sound
-      //       const thud = new BABYLON.Sound('thud',
-      //         './audio/thud_mixdown.mp3', scene, null, {
-      //           loop: false,
-      //           autoplay: true,
-      //           // spatialSound: true,
-      //           // distanceModel: 'linear',
-      //           // rolloffFactor: 0.1,
-      //           maxDistance: 160,
-      //         });
-      //       thud.attachToMesh(newMesh);
-      //       setTimeout(() => {
-      //         thud.dispose();
-      //       }, 1000);
-      //     });
-      //   // Vibrate
-      //   window.navigator.vibrate(15);
-      // }
       setTimeout(() => {
         newMesh.dispose();
         newImpostor.dispose();

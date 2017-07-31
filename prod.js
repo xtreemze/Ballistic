@@ -56,7 +56,9 @@ module.exports = function prod(env) {
       }),
       new OfflinePlugin({
         externals: ['./js/custom2.js', './js/oimo.min.js',
-          './js/ballistic.babylon',
+          './js/ballistic.babylon', './audio/ambient_mixdown.mp3',
+          './audio/whoosh_mixdown.mp3',
+          './audio/thud_mixdown.mp3',
         ],
         caches: 'all',
         responseStrategy: 'network-first',

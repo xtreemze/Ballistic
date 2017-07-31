@@ -1,7 +1,6 @@
 {
   "name": "Ballistic",
   "short_name": "Ballistic",
-  "start_url": "./",
   "icons": [{
     "src": "https://xtreemze.github.io/Ballistic/android-chrome-192x192.png",
     "sizes": "192x192",
@@ -13,6 +12,5 @@
   }],
   "theme_color": "#6485B8",
   "background_color": "#6485B8",
-  "orientation": "portrait",
   "display": "standalone"
 }
