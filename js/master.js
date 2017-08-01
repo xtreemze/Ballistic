@@ -86,10 +86,16 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
 
 
     */
-    const moveCube = function moveCube() {
-      redCube.setLinearVelocity(new BABYLON.Vector3(8, 0, 0));
+    const rotateCube = function rotateCube() {
+      window.setTimeout(redMesh.lookAt(camera.position), 2000);
     };
-    window.setInterval(moveCube, 2000);
+    const moveCube = function moveCube() {
+      rotateCube();
+      const forwardLocalCube = new BABYLON.Vector3(20, 0, 0);
+      const speedCube = redCube.getDirection(forwardLocalCube);
+      redCube.applyImpulse(speedCube, redCube.getAbsolutePosition());
+    };
+    window.setInterval(moveCube, 4000);
     /*
     d8888b. db    db d888888b d888888b  .d88b.  d8b   db
     88  `8D 88    88 `~~88~~' `~~88~~' .8P  Y8. 888o  88
@@ -100,7 +106,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
 
     */
     const button = BABYLON.Mesh.CreateBox('button', 0.8, scene);
-    // window.button = button;
+    window.button = button;
     button.material = redMesh.material;
     button.parent = camera; // The weapon will move with the player camera
     button.position = new BABYLON.Vector3(0, -2, 4);
@@ -160,13 +166,13 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       newMesh.material = ice.material;
       newMesh.position.copyFrom(button.absolutePosition);
       newMesh.rotation.copyFrom(camera.rotation);
-      const forwardLocal = new BABYLON.Vector3(0, 0, 44);
       const newImpostor = new BABYLON.PhysicsImpostor(
         newMesh, BABYLON.PhysicsImpostor.BoxImpostor, {
           mass: 5,
           restitution: 0.2,
           friction: 10,
         }, scene);
+      const forwardLocal = new BABYLON.Vector3(0, 0, 44);
       const speed = button2.getDirection(forwardLocal);
       newImpostor.setLinearVelocity(speed);
       // newMesh.checkCollisions = true;
