@@ -8,8 +8,8 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
   const scene = scene1;
   window.scene = scene1;
   const gravityVector = new BABYLON.Vector3(0, -9.81, 0);
-  const physicsPlugin = new BABYLON.OimoJSPlugin();
-  // const physicsPlugin = new BABYLON.CannonJSPlugin();
+  // const physicsPlugin = new BABYLON.OimoJSPlugin();
+  const physicsPlugin = new BABYLON.CannonJSPlugin();
   scene.enablePhysics(gravityVector, physicsPlugin);
   // scene.getPhysicsEngine()
   //   .setGravity(new BABYLON.Vector3(0, -9.81, 0));
@@ -24,30 +24,32 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
     './audio/ambient_mixdown.mp3', scene, null, {
       loop: true,
       autoplay: true,
-      volume: audioVolume - 1.3,
+      volume: audioVolume - 2.1,
     });
   const camera = scene.activeCamera;
   window.inputManager = camera.inputs;
   // window.inputManager.addDeviceOrientation();
-  if (navigator.platform === 'Win32') {
-    window.inputManager.clear();
-    window.inputManager.addKeyboard();
-    window.inputManager.addMouse();
-  } else {
-    window.inputManager.clear();
-    window.inputManager.addTouch();
-  }
+  // if (navigator.platform === 'Win32') {
+  //   window.inputManager.clear();
+  //   window.inputManager.addKeyboard();
+  //   window.inputManager.addMouse();
+  // } else {
+  //   window.inputManager.clear();
+  //   window.inputManager.addTouch();
+  // }
   // window.inputManager.addVirtualJoystick();
   // window.inputManager.attached.touch.detachControl();
   // window.inputManager.removeByType('FreeCameraKeyboardMoveInput');
   // window.inputManager.attached.mouse.detachControl();
-  camera.fov = 1.65;
+  // camera.fov = 1.65;
+  // camera.fovMode = 1;
+  camera.fov = 1.5;
   // //
   camera.inertia = 0.72;
   camera.speed = 2;
   camera.angularSensibility = 1400;
-  camera.touchMoveSensibility = 150;
-  camera.touchAngularSensibility = 7400;
+  camera.touchMoveSensibility = 180;
+  camera.touchAngularSensibility = 12000;
   scene.executeWhenReady(() => {
     /*
 
@@ -109,9 +111,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       trigger: BABYLON.ActionManager.OnPickTrigger,
       parameter: button,
     }, () => {
-      window.navigator.vibrate([25, 20, 25, 20, 16, 14, 16,
-        8, 15,
-      ]);
+      window.navigator.vibrate([38, 8, 32]);
       const newMesh = BABYLON.Mesh.CreateBox('newMesh', 2,
         scene);
       // const cubeSound = new BABYLON.Sound('fire',
@@ -173,7 +173,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
           './audio/thud_mixdown.mp3', scene, null, {
             loop: false,
             autoplay: true,
-            maxDistance: 200,
+            maxDistance: 180,
             volume: audioVolume - 0.6,
           });
         thud.attachToMesh(collided.object.geometry._meshes[
@@ -181,7 +181,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
         colored.object.material.diffuseColor = new BABYLON
           .Color3(Math.random(), Math.random(), 0.155);
         // Vibrate
-        window.navigator.vibrate([20, 10, 20, 10, 20]);
+        window.navigator.vibrate([50, 8, 60]);
         setTimeout(() => {
           thud.dispose();
         }, 500);
@@ -213,6 +213,6 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
 window.addEventListener('resize', () => {
   engine.resize();
 });
-document.documentElement.addEventListener('touchmove', (event) => {
-  event.preventDefault();
-}, false);
+// document.documentElement.addEventListener('touchmove', (event) => {
+//   event.preventDefault();
+// }, false);

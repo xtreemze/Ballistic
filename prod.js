@@ -46,19 +46,27 @@ module.exports = function prod(env) {
           language_out: 'ECMASCRIPT5',
           compilation_level: 'ADVANCED',
           warning_level: 'QUIET',
-          externs: [{ src: `
-                      var BABYLON = {};
-
-               ` }],
+          externs: [{
+            // src:
+            // `
+            //           var BABYLON = {};
+            //    `
+          }],
         },
         // makeSourceMaps: true,
         concurrency: 4,
       }),
       new OfflinePlugin({
-        externals: ['./js/custom2.js',
+        externals: [
+          // babylon
+          // './js/custom2.js',
+          // './js/custom3.js',
+          './js/custom4.js',
           // './js/oimo.min.js',
           //   './js/pep.min.js',
-          './js/ballistic.babylon', './audio/ambient_mixdown.mp3',
+          './js/ballistic.babylon',
+          // audio
+          './audio/ambient_mixdown.mp3',
           './audio/whoosh_mixdown.mp3',
           './audio/thud_mixdown.mp3',
         ],
