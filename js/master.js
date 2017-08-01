@@ -111,7 +111,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       trigger: BABYLON.ActionManager.OnPickTrigger,
       parameter: button,
     }, () => {
-      if (navigator.platform === 'Android') {
+      if (!window.navigator.vibrate === false) {
         window.navigator.vibrate([38, 8, 32]);
       }
       const newMesh = BABYLON.Mesh.CreateBox('newMesh', 2,
@@ -183,7 +183,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
         colored.object.material.diffuseColor = new BABYLON
           .Color3(Math.random(), Math.random(), 0.155);
         // Vibrate
-        if (navigator.platform === 'Android') {
+        if (!window.navigator.vibrate === false) {
           window.navigator.vibrate([50, 8, 60]);
         }
         setTimeout(() => {
