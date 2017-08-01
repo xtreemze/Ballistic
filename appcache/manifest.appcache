@@ -1,13 +1,11 @@
 CACHE MANIFEST
-#ver:2017-7-31 17:29:55
+#ver:2017-8-1 14:13:22
 #plugin:4.8.3
 
 CACHE:
 ../
 ../bundle.js
 ../js/custom2.js
-../js/oimo.min.js
-../js/pep.min.js
 ../js/ballistic.babylon
 ../audio/ambient_mixdown.mp3
 ../audio/whoosh_mixdown.mp3

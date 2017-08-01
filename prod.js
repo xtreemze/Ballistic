@@ -55,9 +55,10 @@ module.exports = function prod(env) {
         concurrency: 4,
       }),
       new OfflinePlugin({
-        externals: ['./js/custom2.js', './js/oimo.min.js',
-          './js/pep.min.js', './js/ballistic.babylon',
-          './audio/ambient_mixdown.mp3',
+        externals: ['./js/custom2.js',
+          // './js/oimo.min.js',
+          //   './js/pep.min.js',
+          './js/ballistic.babylon', './audio/ambient_mixdown.mp3',
           './audio/whoosh_mixdown.mp3',
           './audio/thud_mixdown.mp3',
         ],

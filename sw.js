@@ -4,8 +4,6 @@ var __wpo = {
       "./",
       "./bundle.js",
       "./js/custom2.js",
-      "./js/oimo.min.js",
-      "./js/pep.min.js",
       "./js/ballistic.babylon",
       "./audio/ambient_mixdown.mp3",
       "./audio/whoosh_mixdown.mp3",
@@ -16,20 +14,18 @@ var __wpo = {
   },
   "externals": [
     "./js/custom2.js",
-    "./js/oimo.min.js",
-    "./js/pep.min.js",
     "./js/ballistic.babylon",
     "./audio/ambient_mixdown.mp3",
     "./audio/whoosh_mixdown.mp3",
     "./audio/thud_mixdown.mp3"
   ],
   "hashesMap": {
-    "9cdd0d72a225172b54c517f2ad9f9601e3457d43": "./",
-    "384717c5291d6900715559b694d139b6f60b8614": "./bundle.js"
+    "bcab55429a100a42f269528f2dcd44d126736e0e": "./",
+    "3c69728cc808ec63bbf5bb8b81b887a6b6284da1": "./bundle.js"
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-7-31 17:29:55",
+  "version": "2017-8-1 14:13:22",
   "name": "webpack-offline",
   "pluginVersion": "4.8.3",
   "relativePaths": true

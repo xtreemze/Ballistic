@@ -1,5 +1,6 @@
 const BABYLON = window.BABYLON;
 //
+const audioVolume = 5;
 const canvas = document.getElementById('renderCanvas');
 const engine = new BABYLON.Engine(canvas, true);
 //
@@ -23,15 +24,19 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
     './audio/ambient_mixdown.mp3', scene, null, {
       loop: true,
       autoplay: true,
-      // volume: 1,
+      volume: audioVolume - 1.3,
     });
   const camera = scene.activeCamera;
   window.inputManager = camera.inputs;
-  // window.inputManager.clear();
   // window.inputManager.addDeviceOrientation();
-  // window.inputManager.addKeyboard();
-  // window.inputManager.addMouse();
-  // window.inputManager.addTouch();
+  if (navigator.platform === 'Win32') {
+    window.inputManager.clear();
+    window.inputManager.addKeyboard();
+    window.inputManager.addMouse();
+  } else {
+    window.inputManager.clear();
+    window.inputManager.addTouch();
+  }
   // window.inputManager.addVirtualJoystick();
   // window.inputManager.attached.touch.detachControl();
   // window.inputManager.removeByType('FreeCameraKeyboardMoveInput');
@@ -123,7 +128,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
         './audio/whoosh_mixdown.mp3', scene, null, {
           loop: false,
           autoplay: true,
-          // volume: 1,
+          volume: audioVolume - 0.8,
         });
       // whoosh.attachToMesh(button);
       newMesh.material = ice.material;
@@ -169,7 +174,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
             loop: false,
             autoplay: true,
             maxDistance: 200,
-            // volume: 1,
+            volume: audioVolume - 0.6,
           });
         thud.attachToMesh(collided.object.geometry._meshes[
           0]);
@@ -208,3 +213,6 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
 window.addEventListener('resize', () => {
   engine.resize();
 });
+document.documentElement.addEventListener('touchmove', (event) => {
+  event.preventDefault();
+}, false);
