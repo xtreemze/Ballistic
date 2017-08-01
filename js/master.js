@@ -6,7 +6,7 @@ const engine = new BABYLON.Engine(canvas, true);
 //
 BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
   const scene = scene1;
-  window.scene = scene1;
+  // window.scene = scene1;
   const gravityVector = new BABYLON.Vector3(0, -9.81, 0);
   // const physicsPlugin = new BABYLON.OimoJSPlugin();
   const physicsPlugin = new BABYLON.CannonJSPlugin();
@@ -75,6 +75,21 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
     const redCube2 = redMesh2.physicsImpostor;
     const monkey = monkeyMesh.physicsImpostor;
     const iceberg = icebergMesh.physicsImpostor;
+    // window.cube = redCube;
+    /*
+                     .d8b.  d888888b
+                    d8' `8b   `88'
+                    88ooo88    88
+                    88~~~88    88
+                    88   88   .88.
+                    YP   YP Y888888P
+
+
+    */
+    const moveCube = function moveCube() {
+      redCube.setLinearVelocity(new BABYLON.Vector3(8, 0, 0));
+    };
+    window.setInterval(moveCube, 2000);
     /*
     d8888b. db    db d888888b d888888b  .d88b.  d8b   db
     88  `8D 88    88 `~~88~~' `~~88~~' .8P  Y8. 888o  88
@@ -85,7 +100,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
 
     */
     const button = BABYLON.Mesh.CreateBox('button', 0.8, scene);
-    window.button = button;
+    // window.button = button;
     button.material = redMesh.material;
     button.parent = camera; // The weapon will move with the player camera
     button.position = new BABYLON.Vector3(0, -2, 4);
@@ -94,10 +109,10 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
     button2.parent = camera; // The weapon will move with the player camera
     button2.position = new BABYLON.Vector3(0, -2, 6);
     button.actionManager = new BABYLON.ActionManager(scene);
-    greenMesh.actionManager = new BABYLON.ActionManager(scene);
-    redMesh.actionManager = new BABYLON.ActionManager(scene);
-    greenMesh2.actionManager = new BABYLON.ActionManager(scene);
-    redMesh2.actionManager = new BABYLON.ActionManager(scene);
+    // greenMesh.actionManager = new BABYLON.ActionManager(scene);
+    // redMesh.actionManager = new BABYLON.ActionManager(scene);
+    // greenMesh2.actionManager = new BABYLON.ActionManager(scene);
+    // redMesh2.actionManager = new BABYLON.ActionManager(scene);
     //
     /*
     d888888b d8888b. d888888b  d888b   d888b  d88888b d8888b.
@@ -111,6 +126,12 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       trigger: BABYLON.ActionManager.OnPickTrigger,
       parameter: button,
     }, () => {
+      button.position = new BABYLON.Vector3(0, -2, 3.6);
+      button.rotate(BABYLON.Axis.Z, Math.PI / 3, BABYLON.Space
+        .LOCAL);
+      setTimeout(() => {
+        button.position = new BABYLON.Vector3(0, -2, 4);
+      }, 30);
       if (!window.navigator.vibrate === false) {
         window.navigator.vibrate([38, 8, 32]);
       }
@@ -133,6 +154,9 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
           volume: audioVolume - 0.8,
         });
       // whoosh.attachToMesh(button);
+      setTimeout(() => {
+        whoosh.dispose();
+      }, 500);
       newMesh.material = ice.material;
       newMesh.position.copyFrom(button.absolutePosition);
       newMesh.rotation.copyFrom(camera.rotation);
@@ -176,35 +200,26 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
             loop: false,
             autoplay: true,
             maxDistance: 180,
-            volume: audioVolume - 0.6,
+            volume: audioVolume - 0.7,
           });
         thud.attachToMesh(collided.object.geometry._meshes[
           0]);
+        setTimeout(() => {
+          thud.dispose();
+        }, 500);
         colored.object.material.diffuseColor = new BABYLON
           .Color3(Math.random(), Math.random(), 0.155);
         // Vibrate
         if (!window.navigator.vibrate === false) {
           window.navigator.vibrate([50, 8, 60]);
         }
-        setTimeout(() => {
-          thud.dispose();
-        }, 500);
       });
       // }
       setTimeout(() => {
         newMesh.dispose();
         newImpostor.dispose();
         // cubeSound.dispose();
-      }, 3000);
-      setTimeout(() => {
-        whoosh.dispose();
-      }, 500);
-      button.position = new BABYLON.Vector3(0, -2, 3.6);
-      button.rotate(BABYLON.Axis.Z, Math.PI / 3, BABYLON.Space
-        .LOCAL);
-      setTimeout(() => {
-        button.position = new BABYLON.Vector3(0, -2, 4);
-      }, 45);
+      }, 2800);
     }));
     scene.activeCamera.attachControl(canvas, true);
     engine.runRenderLoop(
