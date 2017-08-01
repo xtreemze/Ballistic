@@ -3,7 +3,8 @@ var __wpo = {
     "main": [
       "./",
       "./bundle.js",
-      "./js/custom4.js",
+      "./js/babylon.js",
+      "./js/pep.min.js",
       "./js/ballistic.babylon",
       "./audio/ambient_mixdown.mp3",
       "./audio/whoosh_mixdown.mp3",
@@ -13,7 +14,8 @@ var __wpo = {
     "optional": []
   },
   "externals": [
-    "./js/custom4.js",
+    "./js/babylon.js",
+    "./js/pep.min.js",
     "./js/ballistic.babylon",
     "./audio/ambient_mixdown.mp3",
     "./audio/whoosh_mixdown.mp3",
@@ -25,7 +27,7 @@ var __wpo = {
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-8-1 16:47:47",
+  "version": "2017-8-1 16:49:03",
   "name": "webpack-offline",
   "pluginVersion": "4.8.3",
   "relativePaths": true
