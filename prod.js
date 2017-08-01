@@ -64,7 +64,8 @@ module.exports = function prod(env) {
           // './js/custom4.js',
           './js/babylon.js',
           // './js/oimo.min.js',
-          './js/pep.min.js', './js/ballistic.babylon',
+          './js/cannon.min.js', './js/pep.min.js',
+          './js/ballistic.babylon',
           // audio
           './audio/ambient_mixdown.mp3',
           './audio/whoosh_mixdown.mp3',

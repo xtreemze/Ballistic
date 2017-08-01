@@ -1,11 +1,12 @@
 CACHE MANIFEST
-#ver:2017-8-1 16:50:24
+#ver:2017-8-1 16:51:22
 #plugin:4.8.3
 
 CACHE:
 ../
 ../bundle.js
 ../js/babylon.js
+../js/cannon.min.js
 ../js/pep.min.js
 ../js/ballistic.babylon
 ../audio/ambient_mixdown.mp3

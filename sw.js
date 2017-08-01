@@ -4,6 +4,7 @@ var __wpo = {
       "./",
       "./bundle.js",
       "./js/babylon.js",
+      "./js/cannon.min.js",
       "./js/pep.min.js",
       "./js/ballistic.babylon",
       "./audio/ambient_mixdown.mp3",
@@ -15,6 +16,7 @@ var __wpo = {
   },
   "externals": [
     "./js/babylon.js",
+    "./js/cannon.min.js",
     "./js/pep.min.js",
     "./js/ballistic.babylon",
     "./audio/ambient_mixdown.mp3",
@@ -27,7 +29,7 @@ var __wpo = {
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-8-1 16:50:24",
+  "version": "2017-8-1 16:51:22",
   "name": "webpack-offline",
   "pluginVersion": "4.8.3",
   "relativePaths": true
