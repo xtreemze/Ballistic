@@ -46,7 +46,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
   camera.fov = 1.5;
   // //
   camera.inertia = 0.72;
-  camera.speed = 2;
+  camera.speed = 2.2;
   camera.angularSensibility = 1400;
   camera.touchMoveSensibility = 180;
   camera.touchAngularSensibility = 12000;
