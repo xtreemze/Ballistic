@@ -254,3 +254,25 @@ window.addEventListener('resize', () => {
 // document.documentElement.addEventListener('touchmove', (event) => {
 //   event.preventDefault();
 // }, false);
+/* 
+Code sent to HTML Forum
+// Global Scope Declarations for Console Tests
+window.button = button;
+window.cube = redCube;
+window.cubeMesh = redMesh;
+window.camera = camera;
+// Red Cube turns to look at camera
+const rotateCube = function rotateCube() {
+  redMesh.lookAt(camera.position);
+};
+// Cube Movement towards Camera ???
+const jump = new BABYLON.Vector3(0, 5, 0);
+const front = new BABYLON.Vector3(0, -10, 0);
+const goForward = redMesh.getDirection(front);
+const moveCube = function moveCube() {
+  redCube.setLinearVelocity(jump);
+  rotateCube();
+  // redCube.setLinearVelocity(goForward);
+};
+window.setInterval(moveCube, 2000);
+ */
