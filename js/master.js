@@ -1,19 +1,19 @@
 const BABYLON = window.BABYLON;
 //
-const audioVolume = 5;
+const audioVolume = 4;
 const canvas = document.getElementById('renderCanvas');
 const engine = new BABYLON.Engine(canvas, true);
 //
-BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
-  const scene = scene1;
+BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
+  // const scene = scene1;
   // window.scene = scene1;
-  const gravityVector = new BABYLON.Vector3(0, -9.81, 0);
+  // const gravityVector = new BABYLON.Vector3(0, -9.81, 0);
   // const physicsPlugin = new BABYLON.OimoJSPlugin();
-  const physicsPlugin = new BABYLON.CannonJSPlugin();
-  scene.enablePhysics(gravityVector, physicsPlugin);
+  // const physicsPlugin = new BABYLON.CannonJSPlugin();
+  // scene.enablePhysics(gravityVector, physicsPlugin);
   // scene.getPhysicsEngine()
   //   .setGravity(new BABYLON.Vector3(0, -9.81, 0));
-  scene.workerCollisions = false;
+  // scene.workerCollisions = false;
   // scene.fogMode = BABYLON.Scene.FOGMODE_LINEAR;
   // scene.fogDensity = 1;
   // scene.fogStart = 0;
@@ -24,7 +24,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
     './audio/ambient_mixdown.mp3', scene, null, {
       loop: true,
       autoplay: true,
-      volume: audioVolume - 2.1,
+      volume: audioVolume - 2.6,
     });
   const camera = scene.activeCamera;
   window.inputManager = camera.inputs;
@@ -75,7 +75,12 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
     const redCube2 = redMesh2.physicsImpostor;
     const monkey = monkeyMesh.physicsImpostor;
     const iceberg = icebergMesh.physicsImpostor;
-    // window.cube = redCube;
+    // Shooting Button
+    const button = BABYLON.Mesh.CreateBox('button', 0.8, scene);
+    window.button = button;
+    window.cube = redCube;
+    window.cubeMesh = redMesh;
+    window.camera = camera;
     /*
                      .d8b.  d888888b
                     d8' `8b   `88'
@@ -86,39 +91,53 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
 
 
     */
+    // Red Cube turns to look at camera
     const rotateCube = function rotateCube() {
-      window.setTimeout(redMesh.lookAt(camera.position), 2000);
+      redMesh.lookAt(camera.position);
+      // window.setTimeout(redMesh.lookAt(camera.position), 1500);
     };
-    const forwardLocalCube = new BABYLON.Vector3(10, 10, 0);
-    // const speedCube = redCube.getDirection(forwardLocalCube);
+    /*       scene.registerBeforeRender(function() {
+        axis1 = (sphere1.position).subtract(sphere2.position);
+        axis3 = BABYLON.Vector3.Cross(camera.position, axis1);
+        axis2 = BABYLON.Vector3.Cross(axis3, axis1);
+
+        mesh.scaling.x = axis1.length();
+        mesh.rotation = BABYLON.Vector3.RotationFromAxis(axis1, axis2, axis3);
+        mesh.position = ((sphere2.position).add(sphere1.position)).scale(0.5);
+        pl.position = camera.position;
+      }); */
+    /*     scene.registerBeforeRender(function() {
+          redMesh.lookAt(camera.position);
+        }); */
+    const jump = new BABYLON.Vector3(0, 5, 0);
+    const front = new BABYLON.Vector3(0, -10, 0);
+    const goForward = redMesh.getDirection(front);
     const moveCube = function moveCube() {
+      // redCube.setLinearVelocity(forwardLocalCube);
+      redCube.setLinearVelocity(jump);
       rotateCube();
-      redCube.setLinearVelocity(forwardLocalCube);
+      // redCube.setLinearVelocity(goForward);
+      // redCube.setImpulse(goForward);
     };
-    window.setInterval(moveCube, 4000);
+    window.setInterval(moveCube, 2000);
     /*
-    d8888b. db    db d888888b d888888b  .d88b.  d8b   db
-    88  `8D 88    88 `~~88~~' `~~88~~' .8P  Y8. 888o  88
-    88oooY' 88    88    88       88    88    88 88V8o 88
-    88~~~b. 88    88    88       88    88    88 88 V8o88
-    88   8D 88b  d88    88       88    `8b  d8' 88  V888
-    Y8888P' ~Y8888P'    YP       YP     `Y88P'  VP   V8P
+d88888b d888888b d8888b. d88888b
+88'       `88'   88  `8D 88'
+88ooo      88    88oobY' 88ooooo
+88~~~      88    88`8b   88~~~~~
+88        .88.   88 `88. 88.
+YP      Y888888P 88   YD Y88888P
+
 
     */
-    const button = BABYLON.Mesh.CreateBox('button', 0.8, scene);
-    window.button = button;
     button.material = redMesh.material;
-    button.parent = camera; // The weapon will move with the player camera
+    button.parent = camera;
     button.position = new BABYLON.Vector3(0, -2, 4);
     const button2 = BABYLON.Mesh.CreateBox('button2', 0.7, scene);
     button2.material = redMesh.material;
-    button2.parent = camera; // The weapon will move with the player camera
+    button2.parent = camera;
     button2.position = new BABYLON.Vector3(0, -2, 6);
     button.actionManager = new BABYLON.ActionManager(scene);
-    // greenMesh.actionManager = new BABYLON.ActionManager(scene);
-    // redMesh.actionManager = new BABYLON.ActionManager(scene);
-    // greenMesh2.actionManager = new BABYLON.ActionManager(scene);
-    // redMesh2.actionManager = new BABYLON.ActionManager(scene);
     //
     /*
     d888888b d8888b. d888888b  d888b   d888b  d88888b d8888b.
@@ -133,7 +152,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       parameter: button,
     }, () => {
       button.position = new BABYLON.Vector3(0, -2, 3.6);
-      button.rotate(BABYLON.Axis.Z, Math.PI / 3, BABYLON.Space
+      button.rotate(BABYLON.Axis.Z, Math.PI / -9, BABYLON.Space
         .LOCAL);
       setTimeout(() => {
         button.position = new BABYLON.Vector3(0, -2, 4);
@@ -143,16 +162,16 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       }
       const newMesh = BABYLON.Mesh.CreateBox('newMesh', 2,
         scene);
-      // const cubeSound = new BABYLON.Sound('fire',
-      //   './audio/fire_mixdown.mp3', scene, null, {
-      //     loop: false,
-      //     autoplay: true,
-      //     // distanceModel: 'linear',
-      //     // rolloffFactor: 1.8,
-      //     maxDistance: 80,
-      //   });
-      // // Sound will now follow the box mesh position
-      // cubeSound.attachToMesh(newMesh);
+      /*       const monkeySound = new BABYLON.Sound('fire',
+              './audio/fire_mixdown.mp3', scene, null, {
+                loop: true,
+                autoplay: true,
+                // distanceModel: 'linear',
+                // rolloffFactor: 1.8,
+                maxDistance: 50,
+              });
+            // // Sound will now follow the box mesh position
+            monkeySound.attachToMesh(monkeyMesh); */
       const whoosh = new BABYLON.Sound('whoosh',
         './audio/whoosh_mixdown.mp3', scene, null, {
           loop: false,
@@ -160,9 +179,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
           volume: audioVolume - 0.8,
         });
       // whoosh.attachToMesh(button);
-      setTimeout(() => {
-        whoosh.dispose();
-      }, 500);
+      whoosh.onended = whoosh.dispose();
       newMesh.material = ice.material;
       newMesh.position.copyFrom(button.absolutePosition);
       newMesh.rotation.copyFrom(camera.rotation);
@@ -188,8 +205,6 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
       const greenCubes = [greenCube2, greenCube, redCube,
         redCube2, monkey, iceberg,
       ];
-      // for (let i = 0; i < greenCubes.length; i += 1) {
-      // const cube = greenCubes[i];
       newImpostor.registerOnPhysicsCollide(greenCubes, (
         main, collided) => {
         // Color
@@ -206,13 +221,11 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
             loop: false,
             autoplay: true,
             maxDistance: 180,
-            volume: audioVolume - 0.7,
+            volume: audioVolume - 1.9,
           });
         thud.attachToMesh(collided.object.geometry._meshes[
           0]);
-        setTimeout(() => {
-          thud.dispose();
-        }, 500);
+        thud.onended = thud.dispose();
         colored.object.material.diffuseColor = new BABYLON
           .Color3(Math.random(), Math.random(), 0.155);
         // Vibrate
