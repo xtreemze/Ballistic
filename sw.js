@@ -25,11 +25,11 @@ var __wpo = {
   ],
   "hashesMap": {
     "67e9e5a2a3ea5c1845a800ca23f2bd6ec5582fab": "./",
-    "bf012562d8dfedaa24cb9601093ee5549ef2e9d8": "./bundle.js"
+    "ac593a6530221e9f3c805479f2dc2293040ff63e": "./bundle.js"
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-8-1 22:29:25",
+  "version": "2017-8-2 10:18:04",
   "name": "webpack-offline",
   "pluginVersion": "4.8.3",
   "relativePaths": true

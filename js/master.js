@@ -89,11 +89,11 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene1) => {
     const rotateCube = function rotateCube() {
       window.setTimeout(redMesh.lookAt(camera.position), 2000);
     };
+    const forwardLocalCube = new BABYLON.Vector3(10, 10, 0);
+    // const speedCube = redCube.getDirection(forwardLocalCube);
     const moveCube = function moveCube() {
       rotateCube();
-      const forwardLocalCube = new BABYLON.Vector3(20, 0, 0);
-      const speedCube = redCube.getDirection(forwardLocalCube);
-      redCube.applyImpulse(speedCube, redCube.getAbsolutePosition());
+      redCube.setLinearVelocity(forwardLocalCube);
     };
     window.setInterval(moveCube, 4000);
     /*
