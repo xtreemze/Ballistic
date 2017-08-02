@@ -94,6 +94,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
     // Red Cube turns to look at camera
     const rotateCube = function rotateCube() {
       redMesh.lookAt(camera.position);
+      redMesh.locallyTranslate(new BABYLON.Vector3(0, 0, -4));
       // window.setTimeout(redMesh.lookAt(camera.position), 1500);
     };
     /*       scene.registerBeforeRender(function() {
@@ -254,7 +255,7 @@ window.addEventListener('resize', () => {
 // document.documentElement.addEventListener('touchmove', (event) => {
 //   event.preventDefault();
 // }, false);
-/* 
+/*
 Code sent to HTML Forum
 // Global Scope Declarations for Console Tests
 window.button = button;
