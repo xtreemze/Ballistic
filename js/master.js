@@ -1,6 +1,8 @@
 const BABYLON = window.BABYLON;
 //
-const audioVolume = 4;
+window.up = 130;
+window.forward = 93;
+const audioVolume = 2;
 const canvas = document.getElementById('renderCanvas');
 const engine = new BABYLON.Engine(canvas, true);
 //
@@ -24,7 +26,7 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
     './audio/ambient_mixdown.mp3', scene, null, {
       loop: true,
       autoplay: true,
-      volume: audioVolume - 2.6,
+      volume: (audioVolume / 10),
     });
   const camera = scene.activeCamera;
   window.inputManager = camera.inputs;
@@ -82,35 +84,28 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
     window.cubeMesh = redMesh;
     window.camera = camera;
     /*
-  .d8b.  d888888b
-d8' `8b   `88'
-88ooo88    88
-88~~~88    88
-88   88   .88.
-YP   YP Y888888P
+      .d8b.  d888888b
+    d8' `8b   `88'
+    88ooo88    88
+    88~~~88    88
+    88   88   .88.
+    YP   YP Y888888P
 
 
-    */
-    // const lookCamera = function lookCamera() {
-    //   redMesh.lookAt(camera.position);
-    // };
+        */
     const moveCube = function moveCube() {
       redMesh.lookAt(camera.position);
       const direction = camera.position.subtract(redMesh.position);
-      // const result = direction.normalize();
       direction.normalize();
-      // Speed control ?? Not Working ??
-      // result.scale(1000 ** 10000);
-      window.result = direction.scale(50);
+      // Speed control
+      const result = direction.scale(window.forward);
       // Jump
-      window.result.y = 100;
+      result.y = window.up;
       const bottomForce = redMesh.position.subtract(new BABYLON
-        .Vector3(-1, 0, 0));
-      redCube.applyImpulse(window.result, bottomForce);
+        .Vector3(0, 2, 0));
+      redCube.applyImpulse(result, bottomForce);
     };
-    const timer = 1800;
-    window.setInterval(moveCube, timer);
-    // window.setInterval(lookCamera, (timer));
+    window.setInterval(moveCube, 2000);
     /*
 d88888b d888888b d8888b. d88888b
 88'       `88'   88  `8D 88'
@@ -153,23 +148,12 @@ YP      Y888888P 88   YD Y88888P
       }
       const newMesh = BABYLON.Mesh.CreateBox('newMesh', 2,
         scene);
-      /*       const monkeySound = new BABYLON.Sound('fire',
-              './audio/fire_mixdown.mp3', scene, null, {
-                loop: true,
-                autoplay: true,
-                // distanceModel: 'linear',
-                // rolloffFactor: 1.8,
-                maxDistance: 50,
-              });
-            // // Sound will now follow the box mesh position
-            monkeySound.attachToMesh(monkeyMesh); */
       const whoosh = new BABYLON.Sound('whoosh',
         './audio/whoosh_mixdown.mp3', scene, null, {
           loop: false,
           autoplay: true,
-          volume: audioVolume - 0.8,
+          volume: audioVolume / 2.5,
         });
-      // whoosh.attachToMesh(button);
       whoosh.onended = whoosh.dispose();
       newMesh.material = ice.material;
       newMesh.position.copyFrom(button.absolutePosition);
@@ -183,14 +167,13 @@ YP      Y888888P 88   YD Y88888P
       const forwardLocal = new BABYLON.Vector3(0, 0, 44);
       const speed = button2.getDirection(forwardLocal);
       newImpostor.setLinearVelocity(speed);
-      // newMesh.checkCollisions = true;
       /*
-       .o88b.  .d88b.  db      db      d888888b .d8888. d888888b  .d88b.  d8b   db
-      d8P  Y8 .8P  Y8. 88      88        `88'   88'  YP   `88'   .8P  Y8. 888o  88
-      8P      88    88 88      88         88    `8bo.      88    88    88 88V8o 88
-      8b      88    88 88      88         88      `Y8b.    88    88    88 88 V8o88
-      Y8b  d8 `8b  d8' 88booo. 88booo.   .88.   db   8D   .88.   `8b  d8' 88  V888
-       `Y88P'  `Y88P'  Y88888P Y88888P Y888888P `8888Y' Y888888P  `Y88P'  VP   V8P
+  .o88b.  .d88b.  db      db      d888888b .d8888. d888888b  .d88b.  d8b   db
+d8P  Y8 .8P  Y8. 88      88        `88'   88'  YP   `88'   .8P  Y8. 888o  88
+8P      88    88 88      88         88    `8bo.      88    88    88 88V8o 88
+8b      88    88 88      88         88      `Y8b.    88    88    88 88 V8o88
+Y8b  d8 `8b  d8' 88booo. 88booo.   .88.   db   8D   .88.   `8b  d8' 88  V888
+  `Y88P'  `Y88P'  Y88888P Y88888P Y888888P `8888Y' Y888888P  `Y88P'  VP   V8P
 
              */
       const greenCubes = [greenCube2, greenCube, redCube,
@@ -198,27 +181,27 @@ YP      Y888888P 88   YD Y88888P
       ];
       newImpostor.registerOnPhysicsCollide(greenCubes, (
         main, collided) => {
-        // Color
-        if (collided === monkey) {
-          colored = redCube;
-        } else if (collided === iceberg) {
-          colored = greenCube;
-        } else {
-          colored = collided;
-        }
+        // // Color
+        // if (collided === monkey) {
+        //   colored = redCube;
+        // } else if (collided === iceberg) {
+        //   colored = greenCube;
+        // } else {
+        //   colored = collided;
+        // }
         // // Sound
         const thud = new BABYLON.Sound('thud',
           './audio/thud_mixdown.mp3', scene, null, {
             loop: false,
             autoplay: true,
             maxDistance: 180,
-            volume: audioVolume - 1.9,
+            volume: audioVolume / 3,
           });
         thud.attachToMesh(collided.object.geometry._meshes[
           0]);
         thud.onended = thud.dispose();
-        colored.object.material.diffuseColor = new BABYLON
-          .Color3(Math.random(), Math.random(), 0.155);
+        // colored.object.material.diffuseColor = new BABYLON
+        //   .Color3(Math.random(), Math.random(), 0.155);
         // Vibrate
         if (!window.navigator.vibrate === false) {
           window.navigator.vibrate([50, 8, 60]);
@@ -245,25 +228,3 @@ window.addEventListener('resize', () => {
 // document.documentElement.addEventListener('touchmove', (event) => {
 //   event.preventDefault();
 // }, false);
-/*
-Code sent to HTML Forum
-// Global Scope Declarations for Console Tests
-window.button = button;
-window.cube = redCube;
-window.cubeMesh = redMesh;
-window.camera = camera;
-// Red Cube turns to look at camera
-const rotateCube = function rotateCube() {
-  redMesh.lookAt(camera.position);
-};
-// Cube Movement towards Camera ???
-const jump = new BABYLON.Vector3(0, 5, 0);
-const front = new BABYLON.Vector3(0, -10, 0);
-const goForward = redMesh.getDirection(front);
-const moveCube = function moveCube() {
-  redCube.setLinearVelocity(jump);
-  rotateCube();
-  // redCube.setLinearVelocity(goForward);
-};
-window.setInterval(moveCube, 2000);
- */

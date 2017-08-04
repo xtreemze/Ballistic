@@ -9,7 +9,7 @@
     "debugHot": "webpack-dev-server --host localhost --port 8080 --env=dev --inline --hot --profile",
     "debug": "webpack-dev-server --host localhost --port 8080 --env=dev --profile",
     "net": "webpack-dev-server --public --host 192.168.0.178 --port 80 --env=dev --profile --open",
-    "net2": "webpack-dev-server --public --host 192.168.0.130 --port 80 --env=dev --profile --open",
+    "net2": "webpack-dev-server --public --host 192.168.0.170 --port 80 --env=dev --profile --open",
     "devHTML": "webpack-dev-server --progress --colors --host localhost --port 8080 --env=dev --profile --open",
     "watch": "webpack --progress --colors --env=dev --profile --watch",
     "exportp": "webpack --env=prod --profile"
