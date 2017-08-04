@@ -82,45 +82,35 @@ BABYLON.SceneLoader.Load('', './js/ballistic.babylon', engine, (scene) => {
     window.cubeMesh = redMesh;
     window.camera = camera;
     /*
-                     .d8b.  d888888b
-                    d8' `8b   `88'
-                    88ooo88    88
-                    88~~~88    88
-                    88   88   .88.
-                    YP   YP Y888888P
+  .d8b.  d888888b
+d8' `8b   `88'
+88ooo88    88
+88~~~88    88
+88   88   .88.
+YP   YP Y888888P
 
 
     */
-    // Red Cube turns to look at camera
-    const rotateCube = function rotateCube() {
-      redMesh.lookAt(camera.position);
-      redMesh.locallyTranslate(new BABYLON.Vector3(0, 0, -4));
-      // window.setTimeout(redMesh.lookAt(camera.position), 1500);
-    };
-    /*       scene.registerBeforeRender(function() {
-        axis1 = (sphere1.position).subtract(sphere2.position);
-        axis3 = BABYLON.Vector3.Cross(camera.position, axis1);
-        axis2 = BABYLON.Vector3.Cross(axis3, axis1);
-
-        mesh.scaling.x = axis1.length();
-        mesh.rotation = BABYLON.Vector3.RotationFromAxis(axis1, axis2, axis3);
-        mesh.position = ((sphere2.position).add(sphere1.position)).scale(0.5);
-        pl.position = camera.position;
-      }); */
-    /*     scene.registerBeforeRender(function() {
-          redMesh.lookAt(camera.position);
-        }); */
-    const jump = new BABYLON.Vector3(0, 5, 0);
-    const front = new BABYLON.Vector3(0, -10, 0);
-    const goForward = redMesh.getDirection(front);
+    // const lookCamera = function lookCamera() {
+    //   redMesh.lookAt(camera.position);
+    // };
     const moveCube = function moveCube() {
-      // redCube.setLinearVelocity(forwardLocalCube);
-      redCube.setLinearVelocity(jump);
-      rotateCube();
-      // redCube.setLinearVelocity(goForward);
-      // redCube.setImpulse(goForward);
+      redMesh.lookAt(camera.position);
+      const direction = camera.position.subtract(redMesh.position);
+      // const result = direction.normalize();
+      direction.normalize();
+      // Speed control ?? Not Working ??
+      // result.scale(1000 ** 10000);
+      window.result = direction.scale(50);
+      // Jump
+      window.result.y = 100;
+      const bottomForce = redMesh.position.subtract(new BABYLON
+        .Vector3(-1, 0, 0));
+      redCube.applyImpulse(window.result, bottomForce);
     };
-    window.setInterval(moveCube, 2000);
+    const timer = 1800;
+    window.setInterval(moveCube, timer);
+    // window.setInterval(lookCamera, (timer));
     /*
 d88888b d888888b d8888b. d88888b
 88'       `88'   88  `8D 88'

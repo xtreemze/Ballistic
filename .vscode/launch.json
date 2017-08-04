@@ -19,7 +19,7 @@
     "type": "chrome",
     "request": "launch",
     "name": "Launch Chrome against Net",
-    "url": "http://192.168.0.170",
+    "url": "http://192.168.0.178",
     "webRoot": "${workspaceRoot}",
     "sourceMaps": true,
     "runtimeArgs": ["--incognito", "--allow-running-insecure-content",
