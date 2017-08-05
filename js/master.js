@@ -2,7 +2,7 @@ const BABYLON = window.BABYLON;
 //
 window.up = 130;
 window.forward = 93;
-const audioVolume = 2;
+const audioVolume = 4;
 const canvas = document.getElementById('renderCanvas');
 const engine = new BABYLON.Engine(canvas, true);
 //
