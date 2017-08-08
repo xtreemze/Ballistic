@@ -1,6 +1,6 @@
 {
   "extends": "airbnb-base",
-  "plugins": ["import"],
+  "plugins": ["import", "prettier"],
   "env": {
     "browser": true,
     "commonjs": true,
@@ -9,22 +9,23 @@
     "amd": true
   },
   "rules": {
-    "no-const-assign": "warn",
-    "no-this-before-super": "warn",
-    "no-undef": "warn",
-    "no-unreachable": "warn",
-    "no-unused-vars": "warn",
-    "constructor-super": "warn",
-    "valid-typeof": "warn",
-    "comma-dangle": "warn",
-    "prefer-arrow-callback": "warn",
-    "func-names": "warn",
-    "prefer-template": "warn",
-    "no-plusplus": "warn",
-    "max-len": "warn",
-    "linebreak-style": "off",
-    "no-console": "off",
-    "no-underscore-dangle": "off"
+    "prettier/prettier": "error"
+      // "no-const-assign": "warn",
+      // "no-this-before-super": "warn",
+      // "no-undef": "warn",
+      // "no-unreachable": "warn",
+      // "no-unused-vars": "warn",
+      // "constructor-super": "warn",
+      // "valid-typeof": "warn",
+      // "comma-dangle": "warn",
+      // "prefer-arrow-callback": "warn",
+      // "func-names": "warn",
+      // "prefer-template": "warn",
+      // "no-plusplus": "warn",
+      // "max-len": "warn",
+      // "linebreak-style": "off",
+      // "no-console": "off",
+      // "no-underscore-dangle": "off"
   },
   "globals": {
     "BABYLON": true,
