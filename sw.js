@@ -24,12 +24,12 @@ var __wpo = {
     "./audio/thud_mixdown.mp3"
   ],
   "hashesMap": {
-    "67e9e5a2a3ea5c1845a800ca23f2bd6ec5582fab": "./",
+    "5af579279b40740f9a5cc804fb0fce873f429b68": "./",
     "bf22f044c70d1ebf6f6e2c4ad8f4fc6942a09d1f": "./bundle.js"
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-8-14 17:23:13",
+  "version": "2017-8-24 13:59:38",
   "name": "webpack-offline",
   "pluginVersion": "4.8.3",
   "relativePaths": true
