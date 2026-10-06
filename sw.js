@@ -1,8 +1,7 @@
-const CACHE_NAME = "ballistic-v2026-10-06";
+const CACHE_NAME = "ballistic-v2026-10-06-source-runtime-fix";
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./bundle.js",
   "./manifest.json",
   "./browserconfig.xml",
   "./favicon.ico",
@@ -17,7 +16,9 @@ const APP_SHELL = [
   "./js/pep.min.js",
   "./js/cannon.min.js",
   "./js/babylon.js",
+  "./js/master.js",
   "./js/desktop-controls.js",
+  "./js/register-service-worker.js",
   "./js/ballistic.babylon",
   "./audio/ambient_mixdown.mp3",
   "./audio/whoosh_mixdown.mp3",

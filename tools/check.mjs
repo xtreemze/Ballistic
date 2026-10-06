@@ -1,8 +1,8 @@
+import vm from "node:vm";
 import { access, readFile } from "node:fs/promises";
 
 const required = [
   "index.html",
-  "bundle.js",
   "manifest.json",
   "sw.js",
   "js/master.js",
@@ -30,8 +30,9 @@ for (const file of required) {
 const html = await readFile("index.html", "utf8");
 
 for (const reference of [
-  "./bundle.js",
-  "./js/desktop-controls.js"
+  "./js/master.js",
+  "./js/desktop-controls.js",
+  "./js/register-service-worker.js"
 ]) {
   if (!html.includes(reference)) {
     failures.push(`index.html does not reference ${reference}`);
@@ -40,6 +41,13 @@ for (const reference of [
 
 
 JSON.parse(await readFile("manifest.json", "utf8"));
+
+const masterSource = await readFile("js/master.js", "utf8");
+try {
+  new vm.Script("var BABYLON = {};\n" + masterSource);
+} catch (error) {
+  failures.push(`js/master.js is not safe to load after the global Babylon runtime: ${error.message}`);
+}
 
 if (failures.length > 0) {
   for (const failure of failures) {
