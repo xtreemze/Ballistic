@@ -3,7 +3,6 @@ import { access, readFile } from "node:fs/promises";
 
 const required = [
   "index.html",
-  "bundle.js",
   "manifest.json",
   "sw.js",
   "js/master.js",
@@ -31,8 +30,9 @@ for (const file of required) {
 const html = await readFile("index.html", "utf8");
 
 for (const reference of [
-  "./bundle.js",
-  "./js/desktop-controls.js"
+  "./js/master.js",
+  "./js/desktop-controls.js",
+  "./js/register-service-worker.js"
 ]) {
   if (!html.includes(reference)) {
     failures.push(`index.html does not reference ${reference}`);
