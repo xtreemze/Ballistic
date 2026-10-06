@@ -1,3 +1,4 @@
+import vm from "node:vm";
 import { access, readFile } from "node:fs/promises";
 
 const required = [
@@ -40,6 +41,13 @@ for (const reference of [
 
 
 JSON.parse(await readFile("manifest.json", "utf8"));
+
+const masterSource = await readFile("js/master.js", "utf8");
+try {
+  new vm.Script("var BABYLON = {};\n" + masterSource);
+} catch (error) {
+  failures.push(`js/master.js is not safe to load after the global Babylon runtime: ${error.message}`);
+}
 
 if (failures.length > 0) {
   for (const failure of failures) {
