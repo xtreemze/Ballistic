@@ -1,59 +1,12 @@
 {
   "version": "0.2.0",
-  "configurations": [{
-    "type": "chrome",
-    "request": "launch",
-    "name": "Launch Chrome against localhost",
-    "url": "http://localhost:8080",
-    "webRoot": "${workspaceRoot}",
-    "sourceMaps": true,
-    "runtimeArgs": ["--incognito", "--allow-running-insecure-content",
-      "--allow-file-access-from-files", "--allow-file-access",
-      "--allow-cross-origin-auth-prompt",
-      "--remote-debugging-port=9222"
-    ],
-    "sourceMapPathOverrides": {
-      "webpack:///*": "${workspaceRoot}/*"
+  "configurations": [
+    {
+      "type": "pwa-chrome",
+      "request": "launch",
+      "name": "Ballistic: Chrome",
+      "url": "http://localhost:5173/Ballistic/",
+      "webRoot": "${workspaceFolder}"
     }
-  }, {
-    "type": "chrome",
-    "request": "launch",
-    "name": "Launch Chrome against Net",
-    "url": "http://192.168.0.178",
-    "webRoot": "${workspaceRoot}",
-    "sourceMaps": true,
-    "runtimeArgs": ["--incognito", "--allow-running-insecure-content",
-      "--allow-file-access-from-files", "--allow-file-access",
-      "--allow-cross-origin-auth-prompt",
-      "--remote-debugging-port=9222"
-    ],
-    "sourceMapPathOverrides": {
-      "webpack:///*": "${workspaceRoot}/*"
-    }
-  }, {
-    "type": "chrome",
-    "request": "launch",
-    "name": "Launch Chrome against Net2",
-    "url": "http://192.168.0.170/",
-    "webRoot": "${workspaceRoot}",
-    "sourceMaps": true,
-    "runtimeArgs": ["--incognito", "--allow-running-insecure-content",
-      "--allow-file-access-from-files", "--allow-file-access",
-      "--allow-cross-origin-auth-prompt",
-      "--remote-debugging-port=9222"
-    ],
-    "sourceMapPathOverrides": {
-      "webpack:///*": "${workspaceRoot}/*"
-    }
-  }, {
-    "type": "chrome",
-    "request": "attach",
-    "name": "Attach to Chrome",
-    "port": 9222,
-    "webRoot": "${workspaceRoot}",
-    "sourceMaps": true,
-    "sourceMapPathOverrides": {
-      "webpack:///*": "${workspaceRoot}/*"
-    }
-  }]
+  ]
 }
