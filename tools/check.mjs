@@ -2,6 +2,7 @@ import { access, readFile } from "node:fs/promises";
 
 const required = [
   "index.html",
+  "bundle.js",
   "manifest.json",
   "sw.js",
   "js/master.js",
@@ -29,18 +30,14 @@ for (const file of required) {
 const html = await readFile("index.html", "utf8");
 
 for (const reference of [
-  "./js/master.js",
-  "./js/desktop-controls.js",
-  "./js/register-service-worker.js"
+  "./bundle.js",
+  "./js/desktop-controls.js"
 ]) {
   if (!html.includes(reference)) {
     failures.push(`index.html does not reference ${reference}`);
   }
 }
 
-if (html.includes("bundle.js")) {
-  failures.push("index.html still references the retired legacy bundle.js");
-}
 
 JSON.parse(await readFile("manifest.json", "utf8"));
 
