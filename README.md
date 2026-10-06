@@ -86,8 +86,8 @@ The workflow can also be started manually from the Actions tab.
 ## Runtime structure
 
 - `index.html` — canonical application entry point
-- `bundle.js` — known-working compiled game runtime
-- `js/master.js` — source for the legacy game runtime; currently not executed directly in production
+- `js/master.js` — game initialization, physics, camera setup, and shooting; loaded directly in production
+- `bundle.js` — retained legacy compiled fallback for historical comparison
 - `js/desktop-controls.js` — desktop-only WASD, Pointer Lock, and click-to-fire adapter
 - `js/babylon.js` — legacy Babylon.js runtime used by the game
 - `js/cannon.min.js` — physics runtime
@@ -98,7 +98,7 @@ The workflow can also be started manually from the Actions tab.
 
 ## Tooling
 
-The original Webpack 3, Babel 6, Closure Compiler, AppCache, and offline-plugin toolchain is no longer required for day-to-day workspace setup. The repository retains the previously generated `bundle.js` as the production runtime until the legacy source can be migrated and browser-certified safely.
+The original Webpack 3, Babel 6, Closure Compiler, AppCache, and offline-plugin toolchain is no longer required for day-to-day workspace setup. The production page loads `js/master.js` directly; the legacy `bundle.js` is retained only as a fallback/reference artifact.
 
 The workspace uses Vite 8 for development serving and a small Node-based build step for the static production artifact. Vite 8 uses Rolldown rather than esbuild.
 
