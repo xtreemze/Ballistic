@@ -3,7 +3,9 @@ var __wpo = {
     "main": [
       "./",
       "./bundle.js",
-      "./js/babylon.js",
+      "./js/desktop-controls.js",
+      "./js/desktop-controls.js",
+    "./js/babylon.js",
       "./js/cannon.min.js",
       "./js/pep.min.js",
       "./js/ballistic.babylon",
@@ -29,7 +31,7 @@ var __wpo = {
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-8-24 13:59:38",
+  "version": "2026-10-06 desktop-controls",
   "name": "webpack-offline",
   "pluginVersion": "4.8.3",
   "relativePaths": true
