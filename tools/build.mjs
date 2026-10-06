@@ -3,6 +3,7 @@ import { dirname, join } from "node:path";
 
 const files = [
   "index.html",
+  "bundle.js",
   "manifest.json",
   "browserconfig.xml",
   "favicon.ico",
