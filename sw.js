@@ -4,8 +4,7 @@ var __wpo = {
       "./",
       "./bundle.js",
       "./js/desktop-controls.js",
-      "./js/desktop-controls.js",
-    "./js/babylon.js",
+      "./js/babylon.js",
       "./js/cannon.min.js",
       "./js/pep.min.js",
       "./js/ballistic.babylon",
@@ -17,6 +16,7 @@ var __wpo = {
     "optional": []
   },
   "externals": [
+    "./js/desktop-controls.js",
     "./js/babylon.js",
     "./js/cannon.min.js",
     "./js/pep.min.js",
