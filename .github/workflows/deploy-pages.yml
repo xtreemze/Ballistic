@@ -21,9 +21,24 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      - name: Install tooling
+        run: npm install --ignore-scripts
+
+      - name: Validate workspace
+        run: npm run check
+
+      - name: Build static site
+        run: npm run build
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -31,7 +46,7 @@ jobs:
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
         with:
-          path: .
+          path: dist
 
       - name: Deploy to GitHub Pages
         id: deployment
