@@ -1,3 +1,6 @@
+(function () {
+"use strict";
+
 const BABYLON = window.BABYLON;
 //
 window.up = 130;
@@ -251,3 +254,5 @@ window.addEventListener("resize", () => {
 // document.documentElement.addEventListener('touchmove', (event) => {
 //   event.preventDefault();
 // }, false);
+
+}());
